@@ -1,0 +1,12 @@
+Package: TutorExpertReviewsWineDemand
+Type: Package
+Title: RTutor problem set RTutorExpertReviewsWineDemand
+Version: 0.1
+Date: 2016-04-08
+Author: Sascha Hagedorn
+Maintainer: Sascha Hagedorn <sascha.hagedorn@uni-ulm.de>
+Description: RTutor problem set RTutorExpertReviewsWineDemand
+License: Not yet licensed by the author. The default suggestion for licensing is
+	Problem set content: Creative Commons (CC BY-SA)
+	Package code: GPL >= 2.0
+Depends: RTutor, ggplot2, dplyr, dplyrExtras, stats, scales, lfe, stargazer, broom, googleVis

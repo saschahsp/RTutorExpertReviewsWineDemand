@@ -1,0 +1,85 @@
+orgvar | var| descr
+
+name | name | Name of wine 
+artikelnr | artikelnr | ID number of wine (given by Systembolaget) 
+artikelid | artikelid | ID number of brand (given by Systembolaget) 
+vintage | vintage | Vintage (if any) 
+country | country | Country 
+region | region | Region 
+year | year | Year  
+week | week | Week no. (1-53) 
+period | period | Weekly time indicator (1-263) 
+date | date | Date 
+litre | litre | Weekly sale in litres 
+llitre | llitre | Weekly sale in log litre 
+price | price | Price in SEK 
+lp | lp | Log price in SEK 
+rprice_litre | rprice_litre | Real litre price in SEK (base jan 2004) 
+dist | dist | Level of distribution of wine 
+taste_segment | taste_segment | Taste segment of wine (16 groups) 
+segm | segm | Color segment of wine 
+price_segm | price_segm | Price segment of wine (high, medium, low, bib) 
+time_segm_price | time_segm_price | Period-color-price segment-package indicator 
+artikpr | artikpr | Product number-price-vintage combination 
+old | old | Indicator for the wine being distributed longer than the previous 2 years 
+ma_split | ma_split | Advertising expenditures a specific week for a wine 
+v10_a | v10_a | Normalized review (0-10): Aftonbladet 
+v10_dn | v10_dn | Normalized review (0-10): Dagens Nyheter v10_di  Normalized review (0-10): Dagens Industri 
+v10_exp | v10_exp | Normalized review (0-10): Expressen 
+v10_svd  | v10_svd | Normalized review (0-10): Svenska Dagbladet 
+v10_aom | v10_aom | Normalized review (0-10): Allt om Mat ( AoM ) 
+v10_am | v10_am | Mean normalized review during the weeks the wine is distributed: Aftonbladet 
+v10_dnm | v10_dnm | Mean normalized review during the weeks the wine is distributed: Dagens Nyheter 
+v10_dim | v10_dim | Mean normalized review during the weeks the wine is distributed: Dagens Industri 
+v10_expm | v10_expm | Mean normalized review during the weeks the wine is distributed: Expressen 
+v10_svdm | v10_svdm | Mean normalized review during the weeks the wine is distributed: Svenska Dagbladet 
+v10_aomm | v10_aomm | Mean normalized review during the weeks the wine is distributed: Allt om Mat 
+v10_all | v10_all | Weekly average normalized review (all media) 
+rev_all | rev_all | Indicator of the wine being reviewed (all media) 
+rev_all_hi | rev_all_hi | Indicator of the wine receiving a good review (all media) 
+rev_all_lo | rev_all_lo | Indicator of the wine receiving a bad review (all media) 
+rev_eve | rev_eve | Indicator of the wine being reviewed in tabloids 
+rev_eve_hi | rev_eve_hi | Indicator of the wine receiving a good review in tabloids 
+rev_eve_lo  | rev_eve_lo | Indicator of the wine receiving a bad review in tabloids 
+rev_ex | rev_ex | Indicator of the wine being reviewed in AoM 
+rev_ex_hi | rev_ex_hi | Indicator of the wine receiving a good review in AoM 
+rev_ex_lo  | rev_ex_lo | Indicator of the wine receiving a bad review in AoM 
+rev_nyaom  | rev_nyaom | Indicator of review is not in AoM yearly special 
+rev_nyaom_hi  | rev_nyaom_hi | Indicator of good reviews not in AoM yearly special 
+rev_nyaom_lo | rev_nyaom_lo | Indicator of bad reviews not in AoM yealy special 
+rev_all_p50 | rev_all_p50 | Indicator of the wine receiving a higher than median review 
+rev_all_p80 | rev_all_p80 | Indicator of the wine recepving a higher than p80 review 
+rev_all_p20 | rev_all_p20 | Indicator of the wine receiving a lower than p20 review 
+m_rev | m_rev | Indicator of the wine receiving multiple reviews in a week 
+nrarom | nrarom | Number of wines reviewed in Allt om Mat each week 
+pri_m | pri_m | Mean real litre price in SEK (base jan 2004) during the weeks the wine is distributed 
+ms_segm | ms_segm | Mean market share within color during weeks the wine is distributed 
+ind | ind | Indicator for the first time the wine is observed in data
+rev_all_lag_x | rev_all_lag_x | The indicator `rev_all` lagged by x
+rev_all_lead_x | rev_all_lead_x | The indicator `rev_all` led by x
+rev_all_hi_lag_x | rev_all_hi_lag_x | The indicator `rev_all_hi` lagged by x
+rev_all_hi_lead_x | rev_all_hi_lead_x | The indicator `rev_all_hi` led by x
+rev_all_lo_lag_x | rev_all_lo_lag_x | The indicator `rev_all_lo` lagged by x
+rev_all_lo_lead_x | rev_all_lo_lead_x | The indicator `rev_all_lo` led by x
+ma_split_lag_x | ma_split_lag_x | The indicator `ma_split` lagged by x
+ma_split_lead_x | ma_split_lead_x | The indicator `ma_split` led by x
+maind | maind | The indicator of advertising expenditures
+indcross | indcross | The indicator for a new artikelnr
+pdum | pdum | The indicator of a price change
+medhigh | medhigh | The indicator of the wine category medium or high price 
+newworld | newworld | The indicator of the wine category new world
+ma_brands | ma_brands |  The indicator of the wine category brand with marketing
+legal_m | legal_m |  The indicator of the wine category marketing became legal
+new | new |  The indictaor of a wine being new
+vint_brands | vint_brands |  The indicator of a wine being a vintage
+highvar_q | highvar_q | The indicator of a wine from one of the high variability regions
+rev_all_category | rev_all_category | The indicator of the wine receiving a review and belongs to the named category
+rev_all_hi_category | rev_all_hi_category | The indicator of the wine receiving a good review and belongs to the named category
+rev_all_lo_category | rev_all_lo_category | The indicator of the wine receiving a bad review and belongs to the named category
+masplit_m | masplit_m | The mean of advertising expendituress (`ma_split`) during weeks the wine is distributed
+pri_m | dpri_m | The mean of real litreprice (`rprice_litre`) during weeks the wine is distributed
+dlitre_m | dlitre_m | The mean of litres (`litre`) sold during weeks the wine is distributed
+pchange | pchange | Price change between two observations
+nrpchange | nrpchange | The sum of pdum
+v10_all_hi | v10_all_hi | The value of `v10_all` where `v10_all` is larger than 7.999 and not NA
+v10_all_lo | v10_all_lo | The value of `v10_all` where `v10_all`is smaller or equal 4
