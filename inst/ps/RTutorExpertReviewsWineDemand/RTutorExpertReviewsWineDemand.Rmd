@@ -24,25 +24,25 @@ The public data as well as the article are provided on the website of the *Ameri
 
 So this question should give you a good imagination about the topic. To get a better understanding, let us take a look at the conditions we have and about the market that we use to examine the effects. 
 
-The paper uses the swedish market because it has certain conditions that make the estimation possible. First of all, we have a instituional setting and secondly, we have really detailed data about the market, which is obviously necessary to do such an analysis. We take the reviews of the six leading print media into account (Year 2002 - 2007). The reviews are getting combined with the weekly sales volumes and advertising expenditures for some weeks. 
+The paper uses the Swedish market because it has certain conditions that make the estimation possible. First of all, we have a institutional setting and secondly, we have really detailed data about the market, which is obviously necessary to do such an analysis. We take the reviews of the six leading print media into account (Year 2002 - 2007). The reviews are getting combined with the weekly sales volumes and advertising expenditures for some weeks. 
 
-The regular assortment of a the swedish market consist of 500 different wines. The definition of a wine depends on the producer, grape varietal, the container size and any other indication on the label. It happens that some just differ in terms of the container (bottle, bag-in-box). 
+The regular assortment of a the Swedish market consist of 500 different wines. The definition of a wine depends on the producer, grape varietal, the container size and any other indication on the label. It happens that some just differ in terms of the container (bottle, bag-in-box). 
 
-This problemset leads you through differnt excersises and chapter that uses different statistical methods and calculations in order to explore the data itself and the impact of reviews, good reviews, bad reviews and advertising expenditures. We are also going to see that it depends on the media how impactful a review is. Furthermore, we are going to examine reviews that are refering to certain categories, for example wines that are in a medium or high price category. 
+This problem set leads you through different exercises and chapter that uses different statistical methods and calculations in order to explore the data itself and the impact of reviews, good reviews, bad reviews and advertising expenditures. We are also going to see that it depends on the media how impactful a review is. Furthermore, we are going to examine reviews that are referring to certain categories, for example wines that are in a medium or high price category. 
 
-It is important to mention, that obviously some reviews might be corrupted. That is a reasonable thought. For example, informer that have no economic benefit from their reviews have more influence on the customer. Consumers might also buy certain wines because of herding behavior. They choose a product that many people buy. This even happens to customers that have signals for better fits. Therefore, a lot of customers get locked into the certain products. The cause is mostly lack of information and this leads to the following of other's opinions.  
+It is important to mention, that obviously some reviews might be corrupted. That is a reasonable thought. For example, informer that have no economic benefit from their reviews have more influence on the customer. Consumers might also buy certain wines because of herding behavior. They choose a product that many people buy. This even happens to customers that have signals for better fits. Therefore, a lot of customers get locked into the certain products. The cause is mostly lack of information and this leads to the following of others opinions.  
 
 However, Customer-to-customer information have an effect on demand for experience goods (Chevalier and Mayzlin 2006, sales rank data of books on Amazon). This indicates that expert reviews might be impactful, therefore the estimations are worth the effort. 
 
 ### Problemset 
 
-The problemset contains descriptive statistics and quite a lot of regressions. A lot of these regressions are very similiar to each other. This is kind of obvious because the main purpose is the same, but if you take a closer look at each regression, then it is very interesting. 
+The problem set contains descriptive statistics and quite a lot of regressions. A lot of these regressions are very similar to each other. This is kind of obvious because the main purpose is the same, but if you take a closer look at each regression, then it is very interesting. 
 
-The problemset uses different data sets. Most of the data preparation is not going to be part of the exercises. In case you are interested, you can take a look at exact code of the preparation in the appendix. 
+The problem set uses different data sets. Most of the data preparation is not going to be part of the exercises. In case you are interested, you can take a look at exact code of the preparation in the appendix. 
 
-The problemset main tool are little code chunks that you have to solve. With every new chunk, you will discover new results and gather more and more interesting interpretations and in the end of the set, you can call yourself a swedish whine market expert. Isn't that exciting? 
+The problem set main tool are little code chunks that you have to solve. With every new chunk, you will discover new results and gather more and more interesting interpretations and in the end of the set, you can call yourself a Swedish whine market expert. Isn't that exciting? 
 
-Your task is to edit every chunk with the edit button. Aferwards, you can check you answer with the check button if your code was correct. Some chunks are going to be optinal, because they explain an alternative method or are just for code showing purposes. It will always say if the chunk is optional. Most of the exercises will start with loading the corresponding data set. It is a bot annoying but necessary, just check the chunk and proceed. 
+Your task is to edit every chunk with the edit button. Afterwards, you can check you answer with the check button if your code was correct. Some chunks are going to be optional, because they explain an alternative method or are just for code showing purposes. It will always say if the chunk is optional. Most of the exercises will start with loading the corresponding data set. It is a bot annoying but necessary, just check the chunk and proceed. 
 
 ### Chapters & Exercises
 
@@ -52,7 +52,7 @@ Your task is to edit every chunk with the edit button. Aferwards, you can check 
 * **4. Descriptive statistics across wines**
 * **5. Price changes**
 * **6. Wine Reviews in Swedish Print Media**
-* **7. Insightfull Plots**
+* **7. Insightful Plots**
 * **8. The Empirical Model**
 * **9. Effects of Reviews and Advertising on Demand for Wine**
 * **10. AoM wines**
@@ -70,12 +70,13 @@ We have to load the data into our working space in order to be able to work with
 
 The data is stored as a `RDS` file. `RDS` files are `single R object` connections (usually a file) where `R` objects are stored. We can just load the data with the `readRDS()` function. Name the data set `data`. 
 
-The function just requires the RDS filename, meaning `readRDS(file=filename)`. For more information regarding `RDS` files and function click on the info button. 
+The function just requires the RDS file name, meaning `readRDS(file=filename)`. For more information regarding `RDS` files and function click on the info button. 
 
 info("readRDS()") # Run this line (Strg-Enter) to show info
 
 ```{r "2_Data_overview"}
-# Use readRDS() to load the datanonexp into the workspace.
+# Use readRDS() to load the datadta into the workspace.
+data <- readRDS(file="datadta.Rds")
 ```
 
 Now let's take a look at the first rows of the data set. Use the `head()` function to display the first 5 rows. 
@@ -84,7 +85,7 @@ Now let's take a look at the first rows of the data set. Use the `head()` functi
 # Display the first 5 rows with the head() function. 
 ```
 
-We finished loading the first dataset into the workspace. As you can see the data is not really sorted. We want to sort the data by `artikelnr` and `period`. We need to sort by `period` because we have data over time. 
+We finished loading the first data set into the work space. As you can see the data is not really sorted. We want to sort the data by `artikelnr` and `period`. We need to sort by `period` because we have data over time. 
 
 The new `data frame`is supposed to have the name `datasort`. We can use the `arrange()` function in order to sort a `data frame`. We want to order by the `artikelnr` & `period`. We can just separate the sorting criteria by comma. The `arrange()` function belongs to the `dplyr` package. This package has a lot of powerful functions that we will use later on. The package also introduced the operator `%>%` that creates a chain. You can find more information to the package under the following link:
 
@@ -101,7 +102,7 @@ head(datasort)
 
 The data is now sorted by the `artikelnr` and `period`. 
 
-This exercise is pretty basic and just want you to understand that it is important to take a first look at the data and then sort it if necessary. After we sorted the data, it also got expanded in the preparations. We are not going to do this here, because the problem set should not have too much data preparation taks, however it is important to understand that data preparation is a big part of data analysis. It is often not the norm to have structured data. For example, the mentioned expanding is important because the base data that we have, has period gaps, so it is important to fill the gaps even though it is just placeholder data. 
+This exercise is pretty basic and just want you to understand that it is important to take a first look at the data and then sort it if necessary. After we sorted the data, it also got expanded in the preparations. We are not going to do this here, because the problem set should not have too much data preparation task, however it is important to understand that data preparation is a big part of data analysis. It is often not the norm to have structured data. For example, the mentioned expanding is important because the base data that we have, has period gaps, so it is important to fill the gaps even though it is just placeholder data. 
 
 ### b) The rest of the datasets. 
 
@@ -111,16 +112,16 @@ Click the info button for short explanations regarding every data set.
 
 * `datadta` Original data set
 * `datasort` Original sorted data set
-* `datafilter` Expanded (`periods`) and filtered original data set. Observations that have the value `NA` for either any explanatory-, dependent-, lead variables or `dist` will be filtered out. Also observations that do not fullfil the requirement `dist`> 4. These filter get explained later on. 
-* `datacc` Datasort with country names changed to the english spelling. 
+* `datafilter` Expanded (`periods`) and filtered original data set. Observations that have the value `NA` for either any explanatory-, dependent-, lead variables or `dist` will be filtered out. Also observations that do not fulfill the requirement `dist`> 4. These filter get explained later on. 
+* `datacc` Datasort with country names changed to the English spelling. 
 * `datafilterreg` Expanded (`periods`) and filtered original data set with lagged variables. Filter checks for `NA` in the lead variables and `dist`. Also `dist` > 4 got checked. It is the base data set for the regressions. 
 * `dataaom` Same as `datafilterreg` just with different lagged variables.
 
-The filters and components is going to be explained throughout the problemset. It is just an overview, in case it is too confusing, just skip it. 
+The filters and components is going to be explained throughout the problem set. It is just an overview, in case it is too confusing, just skip it. 
 
 ### c) Data investigation
 
-We already took a first look and the data and decided to sort it, because we have data over time. The next recommended step would be to take a deeper look at the `data` to have a even better understanding. Well, it is cleary important to know all the data to actually be able to analyze it. So first let us take a look at the column names, most of them will give us directly an understanding what the column is about. However, some colum names are't that obvious because they use certain acronyms or syntax. 
+We already took a first look and the data and decided to sort it, because we have data over time. The next recommended step would be to take a deeper look at the `data` to have a even better understanding. Well, it is clear important to know all the data to actually be able to analyze it. So first let us take a look at the column names, most of them will give us directly an understanding what the column is about. However, some column names aren't that obvious because they use certain acronyms or syntax. 
 
 Use the `colnames()` command to see the name of the columns. 
 
@@ -128,7 +129,7 @@ Use the `colnames()` command to see the name of the columns.
 # Use colnames() to take a closer look.
 ```
 
-Now, we can see all the `column` names. Most of the columns are pretty much self explained. The important variables are the `v10_` variations and espeically the `rev_` variables. The `v10_`s are the normalized review grades of the different print medias. The `rev_`s are the indicators of a wine being reviewed. There are different indicators. Some indicate a good review, a review from a tabloid or even combinations.
+Now, we can see all the `column` names. Most of the columns are pretty much self explained. The important variables are the `v10_` variations and especially the `rev_` variables. The `v10_`s are the normalized review grades of the different print medias. The `rev_`s are the indicators of a wine being reviewed. There are different indicators. Some indicate a good review, a review from a tabloid or even combinations.
 
 Click on the "Info" button for variable descriptions.
 
@@ -146,7 +147,7 @@ You can also use the `str()` command to get a really detailed look at the data. 
 
 As you can see, the `name` has the type `chr`, `artikelnr` is an integer and `period` is from type num. This is not really surprising.
 
-Before we proceede to actually do some statistics, let us take another look, in fact let us take a look at the important variables in this data set. We know that the article is about the impact of the reviews and advertising expenditures. It is pretty obvious what a varibale with advertising expenditures looks like. But the situation about the reviews is a little bit different. We will just select certain columns since our data set is quite big. 
+Before we proceed to actually do some statistics, let us take another look, in fact let us take a look at the important variables in this data set. We know that the article is about the impact of the reviews and advertising expenditures. It is pretty obvious what a variable with advertising expenditures looks like. But the situation about the reviews is a little bit different. We will just select certain columns since our data set is quite big. 
 
 ```{r "2_Data_overview__6"}
 # Displaying statsort with head().
@@ -160,23 +161,23 @@ datasample <- datasort %>%
 head(datasample)
 ```
 
-The result gives us more knwoledge about the structure of the data set.
+The result gives us more knowledge about the structure of the data set.
 
 You can see in the first sample that we have weekly data. he week `column` represents the week in the given year, thus starting from 1 every new year. The column `period` however goes up to 261 which represents all weeks stacked up from the data period year 2002 - the first two weeks of 2007. this one period is also one week. 
 
-The filtered second sampl focuses on the review columns. We can see that the `rev_` columns are dummies that represent a certain review, thus if it has the value 1 a review appeared in the given week. The `v10_` columns give us the grade of the review. 
+The filtered second lamps focuses on the review columns. We can see that the `rev_` columns are dummies that represent a certain review, thus if it has the value 1 a review appeared in the given week. The `v10_` columns give us the grade of the review. 
 
-So, youYou can see that the wine `Trapiche Cab Sauv 750 ml` got reviewed by the print media `Dagens Industri` and `Allt om Mat` in week 40 of year 2005. The grades are 7.5 and 10. Therefore, `rev_all` has the value 1 and indicates a review in the given week. If at least one review appears in any print media, then the indicator `rev_all` has the value 1. `rev_all_hi` has also the value 1, which indicates that a good review happened. `rev_all_lo` has the value 0 because no bad review was published. A grade is considered good if larger than 8 and bad if smaller or equal 4.
+So, you can see that the wine `Trapiche Cab Sauv 750 ml` got reviewed by the print media `Dagens Industri` and `Allt om Mat` in week 40 of year 2005. The grades are 7.5 and 10. Therefore, `rev_all` has the value 1 and indicates a review in the given week. If at least one review appears in any print media, then the indicator `rev_all` has the value 1. `rev_all_hi` has also the value 1, which indicates that a good review happened. `rev_all_lo` has the value 0 because no bad review was published. A grade is considered good if larger than 8 and bad if smaller or equal 4.
 
-Now, let us investigate how many unique wines we have. Use the `n_distinct()` command from the `dplyr` package to get the amount of unique wines. We can use the `data frame` name and the name of the `column` to indicate the data that we want to take a lookt at. The `artikelnr` is the right choice here.   
+Now, let us investigate how many unique wines we have. Use the `n_distinct()` command from the `dplyr` package to get the amount of unique wines. We can use the `data frame` name and the name of the `column` to indicate the data that we want to take a look at. The `artikelnr` is the right choice here.   
 
 ```{r "2_Data_overview__7"}
 # Use n_distinct command to count the numbers of unique artikelnr 
 ```
 
-The results shows that we have 1162 different wines in the data set. However, not all of the wines are going to be used for estimations respectively satistics. This is going to be explained later. 
+The results shows that we have 1162 different wines in the data set. However, not all of the wines are going to be used for estimations respectively statistics. This is going to be explained later. 
 
-This exercise showed and explained you the different variables, gave you an idea about the stucture about the data set and did the first small analysis on how many different wines we have. Let's continue to the next exercise that will explain why we ust a certain filter to limit the dataset.
+This exercise showed and explained you the different variables, gave you an idea about the structure about the data set and did the first small analysis on how many different wines we have. Let's continue to the next exercise that will explain why we use a certain filter to limit the data set.
 
 ## Exercise 3 Shares of distribution level 
 
@@ -194,9 +195,9 @@ There are six distribution levels in the regular assortment for wine:
 
 Which means that a wine that offered in all 420 stores, belongs to Tier 1.
 
-The different shares clearly affect sales. The paper only takes attention to the first two tiers in order to have a better result. The results would not be consistent if all the wines would not be in most of the stores. The store coverage can only change twice every year with the spring & fall catalogue, what is also good for the estimation. The volumes are overall rather stable, with some cyclical patterns for some types. For example, sparkling wine has more sales during new years' eve and white wine is more popular during the summer, which is going to be addressed, but we will come later to that. So this as a first overview. 
+The different shares clearly affect sales. The paper only takes attention to the first two tiers in order to have a better result. The results would not be consistent if all the wines would not be in most of the stores. The store coverage can only change twice every year with the spring & fall uncatalogued, what is also good for the estimation. The volumes are overall rather stable, with some cyclical patterns for some types. For example, sparkling wine has more sales during new years' eve and white wine is more popular during the summer, which is going to be addressed, but we will come later to that. So this as a first overview. 
 
-Among other preparations, we filterd out all observations that have the value of `dist` is larger than 4 and not `NA`. The reason for this is the above mentioned volume of the Tier 1 and 2 wines. So as the next exercises let us take a look at the distribution level and the volumes to understand why we filter out most the wines in the following exercises.  
+Among other preparations, we filtered out all observations that have the value of `dist` is larger than 4 and not `NA`. The reason for this is the above mentioned volume of the Tier 1 and 2 wines. So as the next exercises let us take a look at the distribution level and the volumes to understand why we filter out most the wines in the following exercises.  
 
 ### b) Shares in terms of amount 
 
@@ -209,7 +210,7 @@ datasort <- readRDS(file="datasort.RDS")
 
 Now, we need to group `datasort` with the `group_by()` function from the already used `dplyr` package. This package is very powerful and got already mentioned. It is going to be grouped by `dist`.  
 
-Next, we will summarise the distribution level by count and the percentage of the corresponding count. The functions `summarise()` and `mutate()` from the `dplyr` package also will help us there. The chain operator `%>%` will connect the different steps again. So we just need to pass the correct functions to the `summarise()` to get the desired result. It is important to mention that the `summarise()` functin get red of all the variable, so after the summary you only will have the summary and the group variables at this point in the chain. The `mutate()` function adds new variables according to the given expressions and preserves the exisiting ones.
+Next, we will summarize the distribution level by count and the percentage of the corresponding count. The functions `summarise()` and `mutate()` from the `dplyr` package also will help us there. The chain operator `%>%` will connect the different steps again. So we just need to pass the correct functions to the `summarise()` to get the desired result. It is important to mention that the `summarise()` function get red of all the variable, so after the summary you only will have the summary and the group variables at this point in the chain. The `mutate()` function adds new variables according to the given expressions and preserves the existing ones.
 
 ```{r "3_Shares_of_distribu__2"}
 # Summarise datasort as follows:
@@ -225,13 +226,13 @@ sum1
 sum(sum1$Percentage[5:6])
 ```
 
-The results show that the observations of Tier 1 and Tier 2 account for approximately 40% in terms of amount. This is definately a quite big amount, since there are 6 distribution levels. Tier 1 even being the biggest amount with ~ 23.32%. 
+The results show that the observations of Tier 1 and Tier 2 account for approximately 40% in terms of amount. This is definitely a quite big amount, since there are 6 distribution levels. Tier 1 even being the biggest amount with ~ 23.32%. 
 
 ### c) Shares in terms of volume 
 
-Now let us take a look at the volumes (litres per week). Summarise by `dist` again. Here it is important that you use the command `na.omit()` because we need to exclude all observations with the value `NA` for `litre`. Also, in case there is even one `NA` in the sum function for a certain `dist`. The whole sum would be `NA`. So it is always recommendable to use `na.omit()` when summing up.  
+Now let us take a look at the volumes (litres per week). Summarize by `dist` again. Here it is important that you use the command `na.omit()` because we need to exclude all observations with the value `NA` for `litre`. Also, in case there is even one `NA` in the sum function for a certain `dist`. The whole sum would be `NA`. So it is always recommendable to use `na.omit()` when summing up.  
 
-So group by `dist`, then summarise 'Litres' as the sum of `litre`. Use `na.omit()` here. Then calculate the percentage, display the summary and calculate the addition of Tier 1 & 2 (`dist` > 4). Use the same syntax as above.  
+So group by `dist`, then summarize 'Litres' as the sum of `litre`. Use `na.omit()` here. Then calculate the percentage, display the summary and calculate the addition of Tier 1 & 2 (`dist` > 4). Use the same syntax as above.  
 
 ```{r "3_Shares_of_distribu__3"}
 # Use the same syntax as above.
@@ -261,7 +262,7 @@ info("GoogleVision") # Run this line (Strg-Enter) to show info
 
 We are going to use the `gvisLineChart()` function to create this special line chart. We just need to pass at least a data frame and the x and y variables. Further options are available, that you can also find in the link in the info section. We will just use the option to change some colors later on. 
 
-First we need to summarise the data to get a suitable data frame to pass by. We want to have a line chart that represents the liters over time. So we want to have a time variable as x and the liters as y. Therefore, we need to group the data by `date` and sum `litre` as Liters. 
+First we need to summarize the data to get a suitable data frame to pass by. We want to have a line chart that represents the liters over time. So we want to have a time variable as x and the liters as y. Therefore, we need to group the data by `date` and sum `litre` as Liters. 
 
 ```{r "3_Shares_of_distribu__4"}
 # Name the new dataframe datastable.
@@ -286,7 +287,7 @@ lineplot1 <- gvisLineChart(datastable, xvar ="date", yvar = "Liters")
 plot(lineplot1, tag = "chart")
 ```
 
-As you can see, the volume is quite stable at around a bit under 4000000 liters with some cyclical peaks. It is also noticeable that there is always a peak around January which suggests that these are the sales around christmas and new years eve. However, this chart just represents the toal volume not the volume for each segment (red, white & sparkling). So let's create another one that shows the volume for each segment.  
+As you can see, the volume is quite stable at around a bit under 4000000 liters with some cyclical peaks. It is also noticeable that there is always a peak around January which suggests that these are the sales around Christmas and new years eve. However, this chart just represents the total volume not the volume for each segment (red, white & sparkling). So let's create another one that shows the volume for each segment.  
 
 The syntax for the summary is the same as above. The difference is that we also group by `segm` though.  
 
@@ -297,7 +298,7 @@ The syntax for the summary is the same as above. The difference is that we also 
 # Display datastablesegm.
 ```
 
-Perfect, the summary is done. But it seems that the structure of the data frame is not correct. We need to have the `segments` as columns with the corresponding `Liters`. We will use the function `dcast()` in order to get the right strucuture for plotting. `dcast()` is a function from the `reshape2` package. 
+Perfect, the summary is done. But it seems that the structure of the data frame is not correct. We need to have the `segments` as columns with the corresponding `Liters`. We will use the function `dcast()` in order to get the right structure for plotting. `dcast()` is a function from the `reshape2` package. 
 
 You can read more about the package under the following links: 
 
@@ -314,7 +315,7 @@ dcastsample <- dcast(datastablesegm, date ~ segm, value.var = 'Liters')
 head(dcastsample)
 ```
 
-Alright, we have the correct structure. So let's pass this dataframe to the `gvisLineChart` as before. We are goint to have 3 lines for each segment (red, white & sparkling) this time, meaning we need to pass 3 columsn to `yvar` this time. We also going to define a color option for the segments. The syntax for the options is `options=list()`. So we just need to add the color option to the list as `colors="['red', 'grey', 'yellow']"` The colors can also be in the hexadecimal color format.    
+Alright, we have the correct structure. So let's pass this data frame to the `gvisLineChart` as before. We are going to have 3 lines for each segment (red, white & sparkling) this time, meaning we need to pass 3 columns to `yvar` this time. We also going to define a color option for the segments. The syntax for the options is `options=list()`. So we just need to add the color option to the list as `colors="['red', 'grey', 'yellow']"` The colors can also be in the hexadecimal color format.    
 
 ```{r "3_Shares_of_distribu__8",results='asis'}
 # Pass datastable to gvisLineChart.
@@ -327,7 +328,7 @@ lineplot2 <- gvisLineChart(dcastsample, xvar ="date", yvar = c("red","whi","spa"
 plot(lineplot2, tag = "chart")
 ```
 
-The line chart for the different segments is quite similar to the overall result. The volumes are rather stable and have cyclical peaks. We also have peaks around January everytime. The volume for red wines is the highest, followed by the white wine. The sparkling wines have the least amount of volume. Very noticeable is that sparkling wines only have peaks around January and are very stable for the rest of the time. The reason for that is obviously new years eve and also christmas to some extent.
+The line chart for the different segments is quite similar to the overall result. The volumes are rather stable and have cyclical peaks. We also have peaks around January every time. The volume for red wines is the highest, followed by the white wine. The sparkling wines have the least amount of volume. Very noticeable is that sparkling wines only have peaks around January and are very stable for the rest of the time. The reason for that is obviously new years eve and also Christmas to some extent.
 
 So this exercise showed is why it is reasonable to filter out most of the wines in the data and just estimate for tier 1 & 2 in order to have a better result. We also saw that the volume is quite stable even though there are some cyclical patterns. However, these patters get addressed in the regressions, we will come to that later.
 
@@ -337,7 +338,7 @@ Continue to the next exercise where we will create a descriptive statistics tabl
 
 ### a) Introduction 
 
-Lets take a look at some descriptive statistics across the wines. We saw already the volumes over time for the different segments. This time we want to create a table that gives us the `mean`, `sd`, `min`, `medium`, `max` and the amount of observations of `Liters per week`, `Price per liter` and `Advertising expenditures`. It will give us an even better understanding about the differences amoung the segments which is quite important when you take a look at a wine market and its dynamic. 
+Lets take a look at some descriptive statistics across the wines. We saw already the volumes over time for the different segments. This time we want to create a table that gives us the `mean`, `sd`, `min`, `medium`, `max` and the amount of observations of `Liters per week`, `Price per liter` and `Advertising expenditures`. It will give us an even better understanding about the differences among the segments which is quite important when you take a look at a wine market and its dynamic. 
 
 Click the info buttons for more information about these statistical values. Min, Max and Observations are rather self explained and not listed as an info section. 
 
@@ -349,9 +350,9 @@ info("Standard deviation") # Run this line (Strg-Enter) to show info
 
 ### b) Summarising 
 
-This time we are going to use a different dataset. This dataset is called `datafilter`. It is the original dataset that got expended, and filtered in order to get get rid of all observations where any of the lags or leads for `rev_all`, `rev_all_hi`, `rev_all_lo`, `ma_split` or `litre` have the value `NA`, thus are empty. We need to do this in order to only take the observations into account that are used in the regressions. The regression function filters these observations automatically. Furthermore, we use the standardfilter `dist` > 4 and not `NA`. We learned the reason for that in the parts before. Just let this explanation sink, it is okay, if this is a bit confusing, because it is not really important for this exercise and will be more clear later on. 
+This time we are going to use a different data set. This data set is called `datafilter`. It is the original data set that got expended, and filtered in order to get get rid of all observations where any of the lags or leads for `rev_all`, `rev_all_hi`, `rev_all_lo`, `ma_split` or `litre` have the value `NA`, thus are empty. We need to do this in order to only take the observations into account that are used in the regressions. The regression function filters these observations automatically. Furthermore, we use the standard filter `dist` > 4 and not `NA`. We learned the reason for that in the parts before. Just let this explanation sink, it is okay, if this is a bit confusing, because it is not really important for this exercise and will be more clear later on. 
 
-The terms **lags** and **leads** weren't introduced that. It is going to be explained much more detail later because it is an important part of the regressions. Shortly, said a **lag** or **lead** is a slided column by a certain value. For a lag the column is going to be slided up and for a lead it is going to be down. Let's continue. 
+The terms **lags** and **leads** weren't introduced that. It is going to be explained much more detail later because it is an important part of the regressions. Shortly, said a **lag** or **lead** is a slid column by a certain value. For a lag the column is going to be slid up and for a lead it is going to be down. Let's continue. 
 
 Load up the data set `datafilter` and name it `tab1`. 
 
@@ -373,11 +374,11 @@ tab1 <- tab1 %>%
 head(tab1[,c("ma_split", "maind")], n = 10)
 ```
 
-As you can see, the indicator for `ma_split` works and marks the wines that have advertising expenditures. The next steps are not super intuative, because first we are going to calculate the means of `ma_split`, `rprice_litre` and `litre` for each `artikelnr`. And then calculate the above mentioned statistical values for each mean and segment. The first step makes sure that we take the "weight" of every `artikelnr` into account. 
+As you can see, the indicator for `ma_split` works and marks the wines that have advertising expenditures. The next steps are not super intuitive, because first we are going to calculate the means of `ma_split`, `rprice_litre` and `litre` for each `artikelnr`. And then calculate the above mentioned statistical values for each mean and segment. The first step makes sure that we take the "weight" of every `artikelnr` into account. 
 
 Within the mean calculation of `ma_split`, `maind` is going to be used, because we only want to take the wines into account that have advertising expenditures. So we have the means for the advertising expenditures, the price per liter and liters per week. 
 
-So, first group by `artikelnr` and `segm`. We include `segm` because we do not want to loose the variable whily summarising. And since every `artikelnr` only has one segment, it does not make a difference. Afterwards, we will summarise the mean of `ma_split*maind` as `Advertising_Expenditures`, the mean of `rpice_litre` as `Price_per_liter` and the mean of `litre` as `Liters_per_week`. We obviously will use the `summarise()` function.  
+So, first group by `artikelnr` and `segm`. We include `segm` because we do not want to loose the variable while summarizing. And since every `artikelnr` only has one segment, it does not make a difference. Afterwards, we will summarize the mean of `ma_split*maind` as `Advertising_Expenditures`, the mean of `rpice_litre` as `Price_per_liter` and the mean of `litre` as `Liters_per_week`. We obviously will use the `summarise()` function.  
 
 ```{r "4_Descriptive_statis__3"}
 # Grouped by artikelnr and segm.
@@ -394,7 +395,7 @@ head(tab1sum, n = 10)
 
 Alright, now we have the means for every `artikelnr`. 
 
-Next, we need to make sure the zeros in `Advertising_Expenditures` don't get taken into account, because these `artikelnr` respectively wine do not have any advertising expenditures during the wohle period. So we simple change the values from 0 ti `NA`. We were not able to declare `NA` at the beginning as the default value because would not have had the correct divisor and the means would have been very high and wrong. 
+Next, we need to make sure the zeros in `Advertising_Expenditures` don't get taken into account, because these `artikelnr` respectively wine do not have any advertising expenditures during the whole period. So we simple change the values from 0 ti `NA`. We were not able to declare `NA` at the beginning as the default value because would not have had the correct divisor and the means would have been very high and wrong. 
 
 ```{r "4_Descriptive_statis__4"}
 # Change the value of Advertising_Expenditure to NA if it is 0.
@@ -432,13 +433,13 @@ colnames(tab1summary)
 tab1summary[,1:6]
 ```
 
-So we have a 3x19 dataframe as the result. 3 because of the grouped segments and 19 because of 6 functions, 3 variables and the segments. 
+So we have a 3x19 data frame as the result. 3 because of the grouped segments and 19 because of 6 functions, 3 variables and the segments. 
 
 ### c) Summarising with better format
 
-The dataframe contains all the desired values but not in a convinient format. A modified `summarise_each()` function can help us to get the right format right away. It is from the package `dplyrExtras` and is called `xummarise_each()`. The syntax is basically the same, just with the addition of .long = "vars", .wide ="funs"`. `.long = "vars"` and the `arrange()` function. 
+The data frame contains all the desired values but not in a convenient format. A modified `summarise_each()` function can help us to get the right format right away. It is from the package `dplyrExtras` and is called `xummarise_each()`. The syntax is basically the same, just with the addition of .long = "vars", .wide ="funs"`. `.long = "vars"` and the `arrange()` function. 
 
-So `.wide ="funs"` obviously makes sure that the functions are the wide argument. `.long=vars` makes sure that the variales are the long argument. In the end we will apply the `arrange()` function and pass the `segm` variable in order to sort by `segm`. All this will give us a convinient format. You can read more about the long and wide format in the already mentioned [link](http://seananderson.ca/2013/10/19/reshape.html) about the reshape2 package.   
+So `.wide ="funs"` obviously makes sure that the functions are the wide argument. `.long=vars` makes sure that the variables are the long argument. In the end we will apply the `arrange()` function and pass the `segm` variable in order to sort by `segm`. All this will give us a convenient format. You can read more about the long and wide format in the already mentioned [link](http://seananderson.ca/2013/10/19/reshape.html) about the reshape2 package.   
 
 ```{r "4_Descriptive_statis__6"}
 # Naming the summary tab1summaryx.
@@ -462,7 +463,7 @@ tab1summaryx <- tab1sum %>%
 tab1summaryx
 ```
 
-As you can see, this format is way better more convinient. It is also nice to round the results, we can just use the `round()` function. Important while rounding is to exclude the non-numeric values. Use the following syntax: `tablename[,-1:-2], digits = 2`. In this example, we are excluding the first two rows and round to two digits.
+As you can see, this format is way better more convenient. It is also nice to round the results, we can just use the `round()` function. Important while rounding is to exclude the non-numeric values. Use the following syntax: `tablename[,-1:-2], digits = 2`. In this example, we are excluding the first two rows and round to two digits.
 
 ```{r "4_Descriptive_statis__7"}
 # Rounding up the numeric values except of the first two columns (strings).
@@ -471,7 +472,7 @@ tab1summaryx[,-1:-2] <- round(tab1summaryx[,-1:-2], digits = 2)
 tab1summaryx
 ```
 
-Perfect, we have the final version. It was quite some steps, which sort of include data preparation with no direct results. But it is really interesting and also important to see the steps to understand better what the endresults are and hot interpretate them. We of course could skip the summary with the normal `summarise_each()` function, but it is part of the exercise to show the difference and the advantage of `xsummarise_each()`, so you can use the appropriate function for your needs. 
+Perfect, we have the final version. It was quite some steps, which sort of include data preparation with no direct results. But it is really interesting and also important to see the steps to understand better what the end results are and how to interpret them. We of course could skip the summary with the normal `summarise_each()` function, but it is part of the exercise to show the difference and the advantage of `xsummarise_each()`, so you can use the appropriate function for your needs. 
 
 Before we move on to the result interpretation. Try to answer these quick questions. 
 
@@ -483,11 +484,11 @@ Before we move on to the result interpretation. Try to answer these quick questi
 
 Our filtered data set consists of 293 red wines with a volume of 9609 liters per week. The amount of white wines is with 198 lower. The sales with an average volume of 7987 liters per week are lower as well. Sparkling wines are not so common with an amount of 35 and a average sales volume of 2969 liters per week. 
 
-The average price of red and white wines is pretty similar with around SEK 90 (~ USD 12.2). In comparison, the sparkling wines are more expensive (SEK 198, ~ USD 27) because of the large amount of Champagnes. However, the median price is smaller than the mean price in all three segements, which means that there is a larger amount of higher priced wines in all categories.     
+The average price of red and white wines is pretty similar with around SEK 90 (~ USD 12.2). In comparison, the sparkling wines are more expensive (SEK 198, ~ USD 27) because of the large amount of Champagnes. However, the median price is smaller than the mean price in all three segments, which means that there is a larger amount of higher priced wines in all categories.     
 
 We can also see that the amount of observations is smaller for `Advertising_Expenditures`. Remember: we only took observations into account where `ma_split` was larger than 0 and not empty. This means, that we only took advertised wines into account. The numbers show that not all the wines, even in Tier 1 & 2, got advertised. Further it is important to mention that wines are advertised by the importer (retailer does not engage in wine advertising) in Sweden.
 
-So now, we have a quite some knowledge about the different segments. Also this exercise showed that the red winse are the most popular one before the white and sparkling wines. So we focused on volumes and advertising expenditures to investiagte the data so far. Next, we will take a look at the price changes that can also have an impact on the the demand. Continue to the next exercise. 
+So now, we have a quite some knowledge about the different segments. Also this exercise showed that the red wines are the most popular one before the white and sparkling wines. So we focused on volumes and advertising expenditures to investigate the data so far. Next, we will take a look at the price changes that can also have an impact on the the demand. Continue to the next exercise. 
 
 *This exercise refers to page 197-199 in the paper*
 
@@ -497,24 +498,24 @@ So now, we have a quite some knowledge about the different segments. Also this e
 
 The limited possibilities to change the price and the institutional setting makes it easier to estimate the effect of the reviews, because we have a more controlled environment and do not have some sort of random impacts that might influence our estimation too much.  
 
-There are also mark up rules to all prices. The prices in the store are basically the ones from the wholesalers, which are the profit-maximizing importers. The stores itself do not have the possibiliy to change the prices. 
+There are also mark up rules to all prices. The prices in the store are basically the ones from the wholesalers, which are the profit-maximizing importers. The stores itself do not have the possibility to change the prices. 
 
 These importers would like to change prices as a response to demand shocks. But there is little scope to change the prices. The prices are also the same in the whole country. 
 
-The prices can change only with new catalogues (April & September / October, some years also December / Summer). The prices usually change even less frequently than possible. As already stated, this is good for our estimation, because too many price changes could affect the impact of the reviews and also the estimations.
+The prices can change only with new catalogs (April & September / October, some years also December / Summer). The prices usually change even less frequently than possible. As already stated, this is good for our estimation, because too many price changes could affect the impact of the reviews and also the estimations.
 
 ### b) Data preparation
 
-Lets take a look at a bar chart to examine the price changes. As always load the data into the workspace. We are going to need `datafilter`. We also used this dataset the exercise before. 
+Lets take a look at a bar chart to examine the price changes. As always load the data into the work space. We are going to need `datafilter`. We also used this data set the exercise before. 
 
 ```{r "5_Price_changes"}
 # Loading the data into fig1. 
 fig1 <- readRDS(file="datafilter.RDS")
 ```
 
-Next, we need to do some data preparations again. Again, it is more valueable than you might think. It gives us a better understanding. 
+Next, we need to do some data preparations again. Again, it is more valuable than you might think. It gives us a better understanding. 
 
-So we want to have the number of price changes. We can not just summarise for unique prices for each `artikelnr`, because we loose the price changes if the same prices appear again. So we need a bit of a more complicated method. 
+So we want to have the number of price changes. We can not just summarize for unique prices for each `artikelnr`, because we loose the price changes if the same prices appear again. So we need a bit of a more complicated method. 
 
 So we will create a lag variable (by 1) for the `price` and the `artikelnr`. Then, we calculate the change while calculating the difference. The `mutate()` function will come handy again to add these mentioned variables.  
 
@@ -547,7 +548,7 @@ As you can see, the whole procedure worked and we are almost done.
 
 ### c) Summarise the data
 
-Now, we need to summarise the data and `plot` the `price` changes. So since we want to plot the price changes for each `artikelnr`, we need to group by it. We will summarise the data by summing up `pdum` since it indicates price changes. 
+Now, we need to summarize the data and `plot` the `price` changes. So since we want to plot the price changes for each `artikelnr`, we need to group by it. We will summarize the data by summing up `pdum` since it indicates price changes. 
 
 We also need to `sum` the indicator `ind`. `ind` is the indicator for the first time the wine is observed in data. It is possible to use the `sum` here because it appears maximally once for every `artikelnr`, keep the name `ind`. 
 
@@ -564,6 +565,13 @@ So let us get started, you should already be familiar with the `summarise` synta
 # Use na.omit() for the sum of ind. 
 # Filter for ind == 1.
 # Then, display the first 15 observations with the head function.
+fig1plot <- fig1 %>%
+  group_by(artikelnr) %>%
+  summarise(
+    'nrpchange' = sum(pdum),
+    'ind' = sum(na.omit(ind))) %>%
+  filter(ind == 1)
+head(fig1plot, n = 15)
 ```
 
 `figplot` gives us the number of `price` changes for each `artikelnr`. 
@@ -575,7 +583,7 @@ The last step is to `plot` the summary. We can use the `ggplot` command for that
 For further information and examples about the whole package, click this [docs.ggplot2.org Link](http://docs.ggplot2.org/current/index.html)
 You can inform yourself about the package and its functions such as `ggplot`, `geom_bar`, `geom_text`, `scale_continuous` and `labs`.
 
-First, just try to `plot` a normal bar chart with `ggplot`. `ggplot` needs our `data frame` `fig1plot`, the `aes()` function and the `geom_bar()` function. The `aes()`[docs.ggplot2.org Link](http://docs.ggplot2.org/current/aes.html) function defines the aesthetic mappings. They describe how the variables are mapped to visual properties of geoms. Due to the fact that we want to plot a bar chart, we just need to pass our `x` variable `nrpchange`. Afterwards, we just need to add the `geom_bar()` [docs.ggplot2.org Link](http://docs.ggplot2.org/current/geom_bar.html) with the `+` operator. We don't need to pass something to the function, if we just want to visualize the count. The `geom_bar()` function uses `stat="count"` by default for the height. `stat` is the statistical transformation to use on the data and get's passed as a string. 
+First, just try to plot a normal bar chart with `ggplot`. `ggplot` needs our data frame `fig1plot`, the `aes()` function and the `geom_bar()` function. The `aes()`[docs.ggplot2.org Link](http://docs.ggplot2.org/current/aes.html) function defines the aesthetic mappings. They describe how the variables are mapped to visual properties of geoms. Due to the fact that we want to plot a bar chart, we just need to pass our `x` variable `nrpchange`. Afterwards, we just need to add the `geom_bar()` [docs.ggplot2.org Link](http://docs.ggplot2.org/current/geom_bar.html) with the `+` operator. We don't need to pass something to the function, if we just want to visualize the count. The `geom_bar()` function uses `stat="count"` by default for the height. `stat` is the statistical transformation to use on the data and get's passed as a string. 
 
 So, we need to pass `figplot` and `nrpchange` within the `aes()` function to `ggplot()`. Afterwards add the `geom_bar()` function with the `+` operator. 
 
@@ -592,8 +600,6 @@ For information regarding the `scales` package, download this PDf [cran r-projec
 Further we want to change the labels of the `x` & `y` axis and add a title, we also want to have percentage labels on top of the bars and change the `y` axis value to percentages as well. Changing the labels of the `x` & `y` axis and adding a title is simply done with the `labs(title,x,y)` function.   
 
 The next step is to pass aesthetic mappings to the `geom_bar()` function because we do not want to have the default counts, of course. We need to pass a `y` as percentage within the `aes()` function. The `..count..` command is going to be very helpful, it counts the amount for each `x`. So we just following calculation for the percentages `(..count..)/sum(..count..)`. 
-
-note maybe another step inbetween 
 
 Afterwards, we need to work with the `geom_text()` [docs.ggplot2.org Link](http://docs.ggplot2.org/current/geom_text.html) function to add labels on top of the bars. We will pass the same `y` as before to `geom_text()`, then we are going to add a `label` command. Both of these steps are included in `aes`. Further, we need to define `stat` and `vjust`. We are going to use `"count"` here. `vjust` is just used for text alignments. `vjust` basically stands for `vertical justification`. A positive number (between 0 & 1) moves the text down and a negative up.    
 
@@ -618,9 +624,9 @@ So let's get started.
  median(fig1plot$nrpchange)
 ```
 
-The result gives us good information about the price change situation in the swedish wine market. The median wine changed the price twice during the period of Jan 2002 - first two weeks of 2007. This is the excat number of markup changes at Systembolaget. 
+The result gives us good information about the price change situation in the Swedish wine market. The median wine changed the price twice during the period of Jan 2002 - first two weeks of 2007. This is the exact number of markup changes at Systembolaget. 
 
-So if we add up the numbers from 0 to 3 changes, we get approximately 80.3 %. We have data of round about 5 years, which means the majority of wines changed their price 0 to 0.6 times a year, which means rougly every 0 to 7 month. This is not really that often, since - remember - the prices can change twice a year with the new catalogues in April & September / October. Some years also have a decemeber or summer catalogue.
+So if we add up the numbers from 0 to 3 changes, we get approximately 80.3 %. We have data of round about 5 years, which means the majority of wines changed their price 0 to 0.6 times a year, which means roughly every 0 to 7 month. This is not really that often, since - remember - the prices can change twice a year with the new catalogs in April & September / October. Some years also have a December or summer catalog.
 
 All this means that we also have rather stable prices which is great in order to get good results, since price changes as a response to for example demand shocks, can influence the demands and therefore the results. We do not want to have a too big of a impact from price changes on demands since the reviews are the important variable.
 
@@ -659,11 +665,11 @@ If a grade exists, then at least one review appeared in the given week. If a win
 
 info("Weighted arithmetic mean") # Run this line (Strg-Enter) to show info
 
-Lets get an overview about the grades among the print medias. We are going to create a table in order to summarise the grades of all print medias. The summary will consists of the mean, standard deviation, minimum, median, maximum and amount of observations for each of the print media grades. 
+Lets get an overview about the grades among the print medias. We are going to create a table in order to summarize the grades of all print medias. The summary will consists of the mean, standard deviation, minimum, median, maximum and amount of observations for each of the print media grades. 
 
 ### b) Calculated variables: Good and bad grades
 
-Same procedere, load the data set that we need. We are going to use `datafilter` again.  
+Same procedure, load the data set that we need. We are going to use `datafilter` again.  
 
 ```{r "6_Wine_Reviews_in_Sw"}
 # Loading data for tab2. 
@@ -688,7 +694,7 @@ So you can clearly see that `v10_all_hi` took the value 10 of `v10_all` in row 4
 
 ### c) Summarise the data
 
-The next step is to summarise the data. Remember: The summary will consists of the mean, standard deviation, minimum, median, maximum and amount of observations for each of the print media grades. The corresponding print media variables are: 
+The next step is to summarize the data. Remember: The summary will consists of the mean, standard deviation, minimum, median, maximum and amount of observations for each of the print media grades. The corresponding print media variables are: 
 
 * `v10_a` Normalized review (0-10): Aftonbladet
 * `v10_dn` Normalized review (0-10): Dagens Nyheter 
@@ -697,11 +703,11 @@ The next step is to summarise the data. Remember: The summary will consists of t
 * `v10_svd` Normalized review (0-10): Svenska Dagbladet 
 * `v10_aom` Normalized review (0-10): Allt om Mat ( AoM )
 
-The first thought would probably again to use the function `summarise_each()`. However, we would have the same problem as in chapter 4. We would get a 1x54 `data frame` as the resul. `1` because of no grouped data and `54` because of 6 functions and 9 variables. This is not really the format that we want, always be careful and choose your functions wisely even though this takes sometimes a bit of a trial and error time.   
+The first thought would probably again to use the function `summarise_each()`. However, we would have the same problem as in chapter 4. We would get a 1x54 data frame as the result. `1` because of no grouped data and `54` because of 6 functions and 9 variables. This is not really the format that we want, always be careful and choose your functions wisely even though this takes sometimes a bit of a trial and error time.   
 
 So the solution is to use `xsummarise_each()` in order to get the right format.
 
-First, let us summarise the data with the desired values. You should be familiar with the `xsummarise_each()` syntax. So pass the functions, then the variables and the long & wide arguments. We will use `na.omit()` also again at this point. The variables are going to be the above mentioned print media grades and the new two variables. 
+First, let us summarize the data with the desired values. You should be familiar with the `xsummarise_each()` syntax. So pass the functions, then the variables and the long & wide arguments. We will use `na.omit()` also again at this point. The variables are going to be the above mentioned print media grades and the new two variables. 
 
 ```{r "6_Wine_Reviews_in_Sw__3"}
 # Summarising tab2.
@@ -724,7 +730,7 @@ tab2summaryx
 
 The transformation gave us the expected readability. But again we need to round the results.
 
-You know the `round()` function already, remember to exclude the first column because it is non-numeric. This time it us just one variable. Of course, it is not necessary to round the results, but it is always better to have a good looking result, even though some formattings that are basically extras should have the least priority.  
+You know the `round()` function already, remember to exclude the first column because it is non-numeric. This time it us just one variable. Of course, it is not necessary to round the results, but it is always better to have a good looking result, even though some formatting that are basically extras should have the least priority.  
 
 ```{r "6_Wine_Reviews_in_Sw__4"}
 # Round the values to 2 digits.
@@ -747,21 +753,23 @@ Before you proceed to the next exercise, let's take a look at some questions to 
 
 #! addon__quiz__q2
 
+#! addon__quiz__q3
+
 *This exercise refers to page 199-201 in the paper* 
 
 ## Exercise 7 Insightfull Plots
 
 ### a) The Number of Wines reviewed per Week
 
-This part of the exercise follows up to the previous exercise. We looked at the different print medias that privide the reviews and grades. Now, we will take a look at the number of reviews per week. This will give us an idea if the numbers are rather stable or have some insightfull peaks. This is interesting because assuming the reviews have a significant impact on the demand, the demand should increase more during these peaks.  
+This part of the exercise follows up to the previous exercise. We looked at the different print medias that provide the reviews and grades. Now, we will take a look at the number of reviews per week. This will give us an idea if the numbers are rather stable or have some insightful peaks. This is interesting because assuming the reviews have a significant impact on the demand, the demand should increase more during these peaks.  
 
-As preparation, load the "original" dataset `datasort` first.
+As preparation, load the "original" data set `datasort` first.
 
 ```{r "7_Insightfull_Plots"}
 datasort <- readRDS(file="datasort.RDS")
 ```
 
-We also have to quickly apply the standardfilter, select the needed columns and get rid of pairs that have `NA` in it. The so called standardfilter, is the filter for tier 1 & 2. Then we need to select only `date` and `v10_all`, because we want to plot the amount of reviews over time on a weekly basis. Remember: `v10_all` is the weekly average normalized review (all media).
+We also have to quickly apply the standard filter, select the needed columns and get rid of pairs that have `NA` in it. The so called standard filter, is the filter for tier 1 & 2. Then we need to select only `date` and `v10_all`, because we want to plot the amount of reviews over time on a weekly basis. Remember: `v10_all` is the weekly average normalized review (all media).
 
 We can use the `filter()` and `select()` functions to do most of it. Afterwards, the `complete.cases()` function to get rid of "`NA` pairs". This function belongs to the `stats` package. If you want to read more about the package, click on the following  [Stat ethz Link](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html#C). 
 
@@ -773,7 +781,7 @@ fig2 <- fig2[complete.cases(fig2),]
 head(fig2)
 ```
 
-Now, let's come to the imortant part: the bar plot. We already created a barplot in one of the previous exercises, so you should remember some parts of the syntax. This time we also want to plot the counts, in fact the counts of the reviews per week. Thus, the x argument is going to be the `date` and the y argument respectively the count argument is going to be `v10_all`.  
+Now, let's come to the important part: the bar plot. We already created a bar plot in one of the previous exercises, so you should remember some parts of the syntax. This time we also want to plot the counts, in fact the counts of the reviews per week. Thus, the x argument is going to be the `date` and the y argument respectively the count argument is going to be `v10_all`.  
 
 `ggplot` is our function of choice. So we will pass `fig2` as the data frame and `date` as the x within the `aes` function. Afterwards, `geom_bar` will be added in order to create the bar plot. For a better readability, we can a title and labels for the axis with `labs()`.  
 
@@ -783,22 +791,19 @@ Now, let's come to the imortant part: the bar plot. We already created a barplot
 # Add geom_bar().
 # Add labs() with the title = "Jan. 2002 - Jan. 2007".
 # Date as x label and Number of Wine Reviewed Per Week as the y label.
-ggplot(fig2, aes(x = date)) +
-  geom_bar() + 
-  labs(title = "Jan. 2002 - Jan. 2007", x = "Date", y = "Number of Wine Reviewed Per Week")
 ```
 
 The bar plot shows that the reviews are spread across the time. It is clearly visible that the amount of reviews peaks at around October every year due to the AoM wine festival, which is the yearly wine tasting of the print media Allt om Mat. As mentioned, basically all red and white wines are being reviewed during that festival. To put it into numbers, in 2004 95 percent of red and 94 percent of white wines were reviewed during the AoM festival. 
 
-One might think again that the wholesalers might want to adapt prices right after the festival in order to influence the demand and as a response to the reviews. This is not possible though, because the festival happens shortly after the publication of the catalogue, where, remember, the prices get determined. So it is not possible for the wholesalers to change their prices in response to the reviews. This is really important for our estimations, since we do not want to have too much or better no influence from other factors as the main estimators. 
+One might think again that the wholesalers might want to adapt prices right after the festival in order to influence the demand and as a response to the reviews. This is not possible though, because the festival happens shortly after the publication of the catalog, where, remember, the prices get determined. So it is not possible for the wholesalers to change their prices in response to the reviews. This is really important for our estimations, since we do not want to have too much or better no influence from other factors as the main estimators. 
 
 *This exercise refers to page 201 $ 202 in the paper* 
 
 ### b) Geo Chart 
 
-The next part of the exercise is to create a geo chart / map with the amount of volumes that get's important from the countries all over the world. It is not really a follow up to the previous exercises, but this exercises focuses rather on insightfull plots that give us some extra information about the swedish wine market and the circumstances. 
+The next part of the exercise is to create a geo chart / map with the amount of volumes that get's important from the countries all over the world. It is not really a follow up to the previous exercises, but this exercises focuses rather on insightful plots that give us some extra information about the Swedish wine market and the circumstances. 
 
-Again, first check the chunk to load our data. We are going to use `datacc` which basically is `datasort` with changed country names that can be recognized by the functions that we are going to use. Most of the country names do not have the american spelling, because the paper is from scandinavian authors. 
+Again, first check the chunk to load our data. We are going to use `datacc` which basically is `datasort` with changed country names that can be recognized by the functions that we are going to use. Most of the country names do not have the american spelling, because the paper is from Scandinavian authors. 
 
 ```{r "7_Insightfull_Plots__4"}
 # Loading datacc, cc stands for changed countrynames due to scandinavian spellings.
@@ -806,14 +811,15 @@ Again, first check the chunk to load our data. We are going to use `datacc` whic
 datacc <- readRDS(file="datacc.RDS")
 ```
 
-Next, let us create a map where we color the countries according to the amount of liters imported. We are going to use the google vision package. We already used a function from the google vision package to create line charts. 
+Next, let us create a map where we color the countries according to the amount of liters imported. We are going to use the Google vision package. We already used a function from the Google vision package to create line charts. 
 
-This time we will use the function `gvisGeoChart()` to create the desired GeoChart. But first we need to summarise the data in order to have a useable data frame. So since we want to have the amount of liters for each country, it is obvious that we will group by `country`. Then summarise with the sum of `litre` as `colorvar`. `na.omit()` needs to be used again, remember the reason (`NA`s).  
+This time we will use the function `gvisGeoChart()` to create the desired Geo Chart. But first we need to summarize the data in order to have a usable data frame. So since we want to have the amount of liters for each country, it is obvious that we will group by `country`. Then summarize with the sum of `litre` as `colorvar`. `na.omit()` needs to be used again, remember the reason (`NA`s).  
 
 ```{r "7_Insightfull_Plots__5"}
+# Use datacc
+# Name it geosummary
 # Group by country.
 # Summarise the sum of litre as colorvar.
-# Filter out all the NA in colorvar.
 ```
 
 Perfect, let us take a look at the data. Display geosummary.   
@@ -824,7 +830,7 @@ Perfect, let us take a look at the data. Display geosummary.
 
 As you can see the biggest wine provider are *Italy*, *Spain*, *Chile* and *France*. However Australia and South Africa are quite close to France. After that the numbers get quite smaller. At this point, it is important to know that Greenland is actually a placeholder for *others*. 
 
-Now let's create the Geo Chart for these numbers. We need to pass at least the summarised data frame, a `locationvar` and a `colorvar`. The `locationvar` is the variable that has all the country names. The countries can for example exist in the format of latitude:longitude, as string with the names or even as uppercase ISO-3166 code. `colorvar` is for the variable that indicates the scale as color. The function will create a color gradient according to min and max value with the default colors. After we created the `gvisGeoChart` object, we are going to pass this object to the `plot()` function with `chart` as the tag. This makes sure that we get the html code as the output for the problemset.
+Now let's create the Geo Chart for these numbers. We need to pass at least the summarized data frame, a `locationvar` and a `colorvar`. The `locationvar` is the variable that has all the country names. The countries can for example exist in the format of latitude:longitude, as string with the names or even as uppercase ISO-3166 code. `colorvar` is for the variable that indicates the scale as color. The function will create a color gradient according to min and max value with the default colors. After we created the `gvisGeoChart` object, we are going to pass this object to the `plot()` function with `chart` as the tag. This makes sure that we get the html code as the output for the problem set.
 
 ```{r "7_Insightfull_Plots__7",results='asis'}
 # Passing ccsummary, country and colorvar.
@@ -838,11 +844,11 @@ The geo chart indicates the amount of liters with corresponding color. You can s
 
 ### c) Motion chart
 
-In this part of the exercise, we want to create a motion chart with the `gvisMotionChart` function. It is from the `googleVis` package as well. We need to pass at least the dataframe, an id variable, a time variable and variables for the x & y axis. A color and size variable is optional. Those would determine the color and size of the aesthetics such as points. 
+In this part of the exercise, we want to create a motion chart with the `gvisMotionChart` function. It is from the `googleVis` package as well. We need to pass at least the data frame, an id variable, a time variable and variables for the x & y axis. A color and size variable is optional. Those would determine the color and size of the aesthetics such as points. 
 
-But first we need to prepare with some short steps a dataframe with the correct values and format.
+But first we need to prepare with some short steps a data frame with the correct values and format.
 
-So we want to pass a dataframe that is grouped by `year` and `country`. We also want to have the sums of each segments (`segm`) in order to have values for the axis.
+So we want to pass a data frame that is grouped by `year` and `country`. We also want to have the sums of each segments (`segm`) in order to have values for the axis.
 
 Before we can do this, we need to split the `segm` column into three columns in order to sum up the amount of segments. Let's use the `mutate()` function. 
 
@@ -860,7 +866,7 @@ datamoch <- datasort %>%
 head(datamoch[,c("artikelnr","segm","red","white","sparkling")])
 ```
 
-As you can see, it works perfectly. Now, we need to group by `year` and `country`. Then, we will summarise the `size` as the sum of `litre`. Further, we will sum up the amount of each segment. 
+As you can see, it works perfectly. Now, we need to group by `year` and `country`. Then, we will summarize the `size` as the sum of `litre`. Further, we will sum up the amount of each segment. 
 
 ```{r "7_Insightfull_Plots__9"}
 # Use datamoch.
@@ -882,9 +888,9 @@ head(datamoch)
 datamoch <- ungroup(datamoch)
 ```
 
-Perect, now we have the data frame that we want. The we duplicated the `country` column as `id` because we want to use the `country` as `id` and also as the color variable. The ungrouping is necessary because `gvisMotionChart()` would not accept the dataframe due to the "wrong" format.
+Perfect, now we have the data frame that we want. The we duplicated the `country` column as `id` because we want to use the `country` as `id` and also as the color variable. The "un-grouping" is necessary because `gvisMotionChart()` would not accept the data frame due to the "wrong" format.
 
-Let's pass the dataframe and variables to `gvisMotionChart()`. 
+Let's pass the data frame and variables to `gvisMotionChart()`. 
 
 ```{r "7_Insightfull_Plots__10",results='asis'}
 # Pass datamoch to gvisMotionChart, name the object plotmoch.
@@ -894,11 +900,11 @@ plotmoch <- gvisMotionChart(datamoch, idvar = "id", timevar = "year", xvar = "re
 plot(plotmoch, tag = "chart")
 ```
 
-The motionchart gives you a lot of options. You have a bubblechart, a column chart and line chart tab. All of these tabs interact with the timeline. So if you press the play button all years are going to be displayed and the chart will change according to the year. You can also just slide the timeline as you wish or change the arguments for the size etc.. So there are a lot of options, discover them as you like. 
+The motion chart gives you a lot of options. You have a bubble chart, a column chart and line chart tab. All of these tabs interact with the timeline. So if you press the play button all years are going to be displayed and the chart will change according to the year. You can also just slide the timeline as you wish or change the arguments for the size etc.. So there are a lot of options, discover them as you like. 
 
 When we have red and whine as x & y, use size as the size variable and press the play button, we can see that most if the bubbles move to the top right corner. This indicates that the amount of red and white wines became larger over time. However, the size of the bubbles do not change that significantly, which suggest that the volumes stay relatively stable. Remember: we had the same results in previous exercises. 
 
-Well, so far, we looked at some statistics in order to investigate and interpretate the data and to understand the settings we have for our regressions regarding the impacts of reviews and advertising expenditures on demands. 
+Well, so far, we looked at some statistics in order to investigate and interpret the data and to understand the settings we have for our regressions regarding the impacts of reviews and advertising expenditures on demands. 
 
 Proceed to the next exercise.
 
@@ -916,11 +922,11 @@ $lnQ$ is the natural log of liters sold of wine i
 
 $\alpha$ is a fixed effect, defined by wine x vintage x price combination
 
-$\delta$ is a sparate fixed effect, defined by week t x segment k (compensation for time trends & sales)
+$\delta$ is a separate fixed effect, defined by week t x segment k (compensation for time trends & sales)
 
 For example: One fixed effect captures bottled red wines sold at a price above SEK 110 per bottle in week 128
 
-$R$ is the review variable, the value is 1 if wine got reviewed in given week t, otherwise it´s just 0
+$R$ is the review variable, the value is 1 if wine got reviewed in given week t, otherwise it's just 0
 
 $R^{good}$ indicates a good review. Remember: it is a good review if the grade is > 7.999
 
@@ -946,7 +952,7 @@ info("Lags") # Run this line (Strg-Enter) to show info
 
 info("Distributed Lag Model") # Run this line (Strg-Enter) to show info
 
-The regression is estimated by ordinary least suqares (OLS). This accounts for possible correlation in the error term over time `period` and across `vintages`, prices and container types. We clustered the standard errors at the brand level `artikelid`. 
+The regression is estimated by ordinary least squares (OLS). This accounts for possible correlation in the error term over time `period` and across `vintages`, prices and container types. We clustered the standard errors at the brand level `artikelid`. 
 
 `artikelid` is the cluster variable for the regression. `artikelid` indicates the `ID number of brand (given by Systembolaget)`.
 
@@ -957,7 +963,7 @@ Let us take a closer look at the `artikelid`to understand better why we cluster 
 datasort <- readRDS(file="datasort.RDS") 
 ```
 
-Now, we need to group the data by `artikelid` and `name` to see what differences are within each `artikelid` respectively brand. Then summarise it with the `summarise()` function. We do not need to pass a function to `summarise()`.  
+Now, we need to group the data by `artikelid` and `name` to see what differences are within each `artikelid` respectively brand. Then summarize it with the `summarise()` function. We do not need to pass a function to `summarise()`.  
 
 ```{r "8_The_Empirical_Mode__2"}
 # Name the summary cluster.
@@ -970,7 +976,7 @@ cluster <- datasort %>%
 head(cluster, n = 20)
 ```
 
-As you can see the wines within an `artikelid` group have just a different name or container. For example the `artikelid` 2024 has two different names for the 750 ml bottle and for the 3l box. But this means that the wines within each group can be correlated, since it is basically the same wine. Therfore, we use clustered standard errors to account for these correlations. However, it is important that values are not correlated across the groups.
+As you can see the wines within an `artikelid` group have just a different name or container. For example the `artikelid` 2024 has two different names for the 750 ml bottle and for the 3l box. But this means that the wines within each group can be correlated, since it is basically the same wine. Therefore, we use clustered standard errors to account for these correlations. However, it is important that values are not correlated across the groups.
 
 info("Standard error") # Run this line (Strg-Enter) to show info
 
@@ -992,7 +998,7 @@ This condition would not hold if reviews were simultaneously correlated with dem
 
 The consequence would be that the conditional mean would not be zero. Thus, we had false results. So, it is always very important to prevent situations where you have omitted variable bias. 
 
-So there are possibilites that demand shocks trigger a review and this can influence our restults. 
+So there are possibilities that demand shocks trigger a review and this can influence our results. 
 
 We have two ways to address this problem. 
 
@@ -1001,9 +1007,9 @@ We have two ways to address this problem.
 For example, if a review appears as a response to popularity then the lead is going to be positive. This because a lead is basically a review indicator in the future. For example, if we have a review indicator in period 2. Then the lead by 1 would give us this indicator in period 1. So if we assume that a wine is very popular and therefore got high sales in period 1 and the review would appear as a response to that popularity. Then the lead by 1  would be positive. 
 * 2. Redid analysis
 
-Only the wines from the AoM event are being used. AoM (Allt om Mat), is the anual wine tasting issue. Most of the wines in the regular assortment are being reviewed on that event. However, this basically means the majority of red and white wines are included, since basically all of them are being reviewd on this event. These wines have a predetermined publication date. This makes sure that the timing of the reviews is indepedent to demand shocks. We will come back to this later on.
+Only the wines from the AoM event are being used. AoM (Allt om Mat), is the annual wine tasting issue. Most of the wines in the regular assortment are being reviewed on that event. However, this basically means the majority of red and white wines are included, since basically all of them are being reviewed on this event. These wines have a predetermined publication date. This makes sure that the timing of the reviews is independent to demand shocks. We will come back to this later on.
 
-In order to make the estimation even more robust and to control wine x vintage x price fixed effects as well as demand shocks, we used weekly data. The high frequency most likely makes sure that there is a low correlation regarding advertising and unusal demand shocks.
+In order to make the estimation even more robust and to control wine x vintage x price fixed effects as well as demand shocks, we used weekly data. The high frequency most likely makes sure that there is a low correlation regarding advertising and unusual demand shocks.
 
 *This exercise refers to page 202 & 203 in the paper* 
 
@@ -1023,7 +1029,7 @@ info("Scatter plot") # Run this line (Strg-Enter) to show info
 
 ### b) Regression
 
-The next step is to execute the regression in order to get the estimations for the scatter plot. The package `lfe` contains the function `felm()`. This function allows us the implementation of clustured standard error and multiple group fixed effects.
+The next step is to execute the regression in order to get the estimations for the scatter plot. The package `lfe` contains the function `felm()`. This function allows us the implementation of clustered standard error and multiple group fixed effects.
 
 info("felm") # Run this line (Strg-Enter) to show info
 
@@ -1046,7 +1052,7 @@ $$ llitre_{ijkt} = \alpha_{j} + \delta_{kt} + \sum_{l=-4}^{25} \alpha_{t-l} \tex
 
 $\alpha$ is a fixed effect, defined by wine x vintage x price combination, which is `artikpr` with the indices `j`. 
 
-$\delta$ is a sparate fixed effect, defined by week t x segment k (compensation for time trends & sales), which is `time_segm_price` with the indices `kt`.
+$\delta$ is a separate fixed effect, defined by week t x segment k (compensation for time trends & sales), which is `time_segm_price` with the indices `kt`.
 
 $\eta$ is the error term with wine i, vintage x price combination j and week t, which is clustered at the brand level `artikelid`. 
 
@@ -1068,11 +1074,11 @@ This condition only holds if the reviews are not simultaneously correlated with 
 
 As already mentioned, the paper used only a certain sample for certain estimations in order to get better results.
 
-This time we are going to load the dataset `datareg`. We applied the standardfilter regarding distribution levels and filtered out observations with empty leads for `rev_all`. 
+This time we are going to load the data set `datareg`. We applied the standard filter regarding distribution levels and filtered out observations with empty leads for `rev_all`. 
 
-Remember: `rev_all` is the indicator of the wine being reviewed in all media. Now load `datareg` into a new dataset named `fig3`.
+Remember: `rev_all` is the indicator of the wine being reviewed in all media. Now load `datareg` into a new data set named `fig3`.
 
-Just check check the chunk to load the data in case you want to do the two optional chunks. 
+Just check check the chunk to load the data in case you want to do the optional chunks. 
 ```{r "9_Effects_of_Reviews"}
 # Load datareg into fig3. 
 fig3 <- readRDS(file="datafilterreg.RDS") 
@@ -1089,7 +1095,7 @@ fig3reg <- felm(llitre ~ rev_all + rev_all_lag_1 + rev_all_lag_2 + rev_all_lag_3
 
 ### C) Prepare a dataframe for plotting
 
-The next step is to prepare a dataset for the plotting. 
+The next step is to prepare a data set for the plotting. 
 
 We would extract the estimations, standard errors etc. to a new data frame in order to make further calculations and adjustments. We could easily do this with the function `tidy()` from the `broom` package. The `tidy()` function constructs a data frame that summarizes the model's statistical findings. For more information click on the following [Cran R Project Link](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) 
 
@@ -1104,10 +1110,9 @@ Let's take a look at the results. Display `dffig3` with the `head()` function.
 
 ```{r "9_Effects_of_Reviews__4"}
 # Display dffig3 with the head function. 
-head(dffig3)
 ```
 
-As you can see, the `tidy()` function from the `broom` package extracted the terms respectively the regressor, the estimation, the clustured standard error, the t value and the p value. We just need estimation and the clustered standard error.
+As you can see, the `tidy()` function from the `broom` package extracted the terms respectively the regressor, the estimation, the clustered standard error, the t value and the p value. We just need estimation and the clustered standard error.
 
 Since we want to plot a 95% interval, we need to make some calculations. We need to calculate an upper and a lower value for each estimation to get the confidence interval range.
 
@@ -1126,7 +1131,7 @@ We just exchange $\bar X$ with our estimator. The 1.96 is the value for $t_{95}$
 
 Source: Timothy C. Urdan, Statistics in Plain English, Third Edition Routledge, 2010 & James H. Stock, Mark W. Watson, Introduction to Econometrics, Third edition Addison-Wesley (2010), p. 151f. 
 
-For more information regarding the terms abov, click on the corresponding info button. 
+For more information regarding the terms above, click on the corresponding info button. 
 
 info("95% Confidence interval") # Run this line (Strg-Enter) to show info
 
@@ -1147,37 +1152,36 @@ head(dffig3)
 
 Perfect, now we have our 95% confidence interval for the estimations. 
 
-So let us take a look what that means in terms of the value range. We are going to interpret the values later with the different plots. So we would say with 95% confidence that the population estimation for `rev_all`, thus the effect of a review, ranges from approximatley `0.0196` to `0.0045` with a sample estimation of approximately `0.0120`. 
+So let us take a look what that means in terms of the value range. We are going to interpret the values later with the different plots. So we would say with 95% confidence that the population estimation for `rev_all`, thus the effect of a review, ranges from approximately `0.0196` to `0.0045` with a sample estimation of approximately `0.0120`. 
 
 Furthermore, we used a finite distributed lag model with 25 lags and 4 leads to allow for the possibility that not all the effects of a review are simultaneous. Thus, we need to add a `week` variable in order to be able to plot the lags and leads. 
 
-We can just use the `$` in addition to the dataframe name `dffig3` to add a `week` column. We also now the structure of column that represents the lag and lead names. Take a look at your last result. It starts with `rev_all` and continues with the first lag afterwards. Then it goes all the way up to the 25th lag and the 4 leads. All the explanatory variables have the same structure. This means that we need a sequence such as `0,1,2,...,25,-1,...,-4`. We can simply define this with `c(0:25,-1:-4)`. 
+We can just use the `$` in addition to the data frame name `dffig3` to add a `week` column. We also now the structure of column that represents the lag and lead names. Take a look at your last result. It starts with `rev_all` and continues with the first lag afterwards. Then it goes all the way up to the 25th lag and the 4 leads. All the explanatory variables have the same structure. This means that we need a sequence such as `0,1,2,...,25,-1,...,-4`. We can simply define this with `c(0:25,-1:-4)`. 
 
 So let us create the `week` column to `dffig3`.
 
 ```{r "9_Effects_of_Reviews__6"}
 # Add the week column with the explained sequence to dffig3.
-dffig3$week <- c(0:25,-1:-4)
-head(dffig3)
+# Then display dffig3 with the head function.
 ```
 
 Perfect. Now, data preparations are finished. Next, we want to create the first plot for the estimations of `rev_all`, so the estimations for the affect of a review. 
 
 ### d) The plots
 
-We are going to use the `plot` command. The prepared dataframe `dffig3` has all the values we need. But remember, `dffig3` has the estimations for all the variables. We only need the first 30 (25 lags, 4 leads & the variable itself) values for the review plot.
+We are going to use the `plot` command. The prepared data frame `dffig3` has all the values we need. But remember, `dffig3` has the estimations for all the variables. We only need the first 30 (25 lags, 4 leads & the variable itself) values for the review plot.
 
 `plot(x, y, ...)` is a function to plot R objects. 
 
-The function needs values for the x and y coordinates, so it is basically a scatter plot, which already got explained in an info section. Further arguments can be passed to manipulate the appearence. 
+The function needs values for the x and y coordinates, so it is basically a scatter plot, which already got explained in an info section. Further arguments can be passed to manipulate the appearance. 
 
-* `main` determinates the title. `xlab` & `ylab` are the labels for the `x` & `y` coordinates. 
+* `main` determines the title. `xlab` & `ylab` are the labels for the `x` & `y` coordinates. 
 * `xlim` & `ylim` define the limits of the `x` & `y` coordinates. 
 * `pch` is a graphical parameter and defines the shape of the point. 
-* `bg` determinates the color of the points. 
+* `bg` determines the color of the points. 
 
 We also added lines around the (0,0) points for better visualization. This is done with the combination of the `panel.first` and `abline` commands.
-*`panel.first` is an expression to be evaluated after the plot axes are set up but before any plotting takes place. This can be useful for drawing background grids or scatterplot smooths. Note that this works by lazy evaluation: passing this argument from other plot methods may well not work since it may be evaluated too early.
+*`panel.first` is an expression to be evaluated after the plot axes are set up but before any plotting takes place. This can be useful for drawing background grids or scatter plot smooths. Note that this works by lazy evaluation: passing this argument from other plot methods may well not work since it may be evaluated too early.
 
 For further information, click this [Inside-R.org link](http://www.inside-r.org/r-doc/graphics/plot) or [Inside-R.org link](http://www.inside-r.org/r-doc/graphics/abline) 
 
@@ -1198,9 +1202,9 @@ points(dffig3$week[1:30],dffig3$u[1:30], pch = '_')
 
 The commands `grid`, `segments` and `points` were also used. These commands are rather intuitive. `grid` creates a grid on the plot, `segments` connects two points with a straight line and `points` plotted points on the plot.
 
-As you can see, a review increases the sales by 1.2 percent in the same week of the review appearance. It goes up to 2 percent within the first week and decreases slowly the weeks after. The effect is quite stable but becomes basically zero after five weeks. You can also see the upper and lower value of the 95% confidence interval ("_" points) and the line inbetween those that represents the range of the interval. To repeat it, we can say with 95% confidence that the population estimation for the corresponding value is within this range. 
+As you can see, a review increases the sales by 1.2 percent in the same week of the review appearance. It goes up to 2 percent within the first week and decreases slowly the weeks after. The effect is quite stable but becomes basically zero after five weeks. You can also see the upper and lower value of the 95% confidence interval ("_" points) and the line in between those that represents the range of the interval. To repeat it, we can say with 95% confidence that the population estimation for the corresponding value is within this range. 
 
-By adding up the betas of the reviews give an increasment of 555 liters, this translates into  a raise of SEK 55278 ( ~ USD 7537) .
+By adding up the betas of the reviews give an increment of 555 liters, this translates into  a raise of SEK 55278 ( ~ USD 7537) .
 
 So let us plot the estimations for good reviews, bad reviews and advertising expenditures next in the same way. Remember: `dffig3` has all the values we need which means we just need to change the indices and the title. Except for the advertising expenditures. We also need to change `ylim` due to its values. The code was stored in a string named `codeplot` which we simply manipulate to get our desired results. Let us keep `codeplot` untouched and name the new string `codeplot1` and so on for the different plots. 
 
@@ -1231,9 +1235,9 @@ codeplot1 <- gsub('Reviews','Good Reviews',codeplot1)
 eval(parse(text = codeplot1))
 ```
 
-The estimation shows that a good review increases the sales by an additional 2 percent. The effect even peaks one week after at 5.2 percent increasment. Although it decreases to approximately 3.3 percent, it stays stable afterwards and the effect stays significant up to 22 weeks. 
+The estimation shows that a good review increases the sales by an additional 2 percent. The effect even peaks one week after at 5.2 percent increment. Although it decreases to approximately 3.3 percent, it stays stable afterwards and the effect stays significant up to 22 weeks. 
 
-The same calculation for the betas of the reviews and good reviews and a evaluation at a mean volume of 8218 liters per week gives us a increasment of 4418 liters volume. This is approximately half a week of sales. This translated with a mean price of SEK 99.6 means a rais of SEK 440000 ( ~ USD 60000).
+The same calculation for the betas of the reviews and good reviews and a evaluation at a mean volume of 8218 liters per week gives us a increment of 4418 liters volume. This is approximately half a week of sales. This translated with a mean price of SEK 99.6 means a raise of SEK 440000 ( ~ USD 60000).
 
 Now the plot for bad reviews. 
 
@@ -1249,7 +1253,7 @@ eval(parse(text = codeplot2))
 
 A bad review has indeed a negative coefficient, but the effect is weak and counterbalanced by the effect of being reviewed at all.
 
-Considering reviews and bad reviews together, the negative impact is close to zero, while the postive impact of a review per se slightly outweights the negative impact which leads to an increasment of 170 liters, meaning SEK 16932 ( ~ USD 2308).
+Considering reviews and bad reviews together, the negative impact is close to zero, while the positive impact of a review per se slightly outweighs the negative impact which leads to an increment of 170 liters, meaning SEK 16932 ( ~ USD 2308).
 
 Now the advertising  expenditures.
 
@@ -1265,13 +1269,13 @@ codeplot3 <- gsub('-0.02,0.08','-0.0002,0.0008',codeplot3)
 eval(parse(text = codeplot3))
 ```
 
-The effect of advertising expenditures are rather short lived and low. Every SEK 1000 spent on advertising increases the sales by 0.025 percent in the same week of appearence. The effect is lightly lower the week after and pretty much close to zero after two weeks.
+The effect of advertising expenditures are rather short lived and low. Every SEK 1000 spent on advertising increases the sales by 0.025 percent in the same week of appearance. The effect is lightly lower the week after and pretty much close to zero after two weeks.
 
-Even though we are also discussing advertising expenditures. The main focus are the reviews. As a sidenote: The endogeneity of advertising should not worry too much due to the fact that we have data with high frequency in terms of weekly peroids. Furthermore, remember we also control the fixed effects of the segements. 
+Even though we are also discussing advertising expenditures. The main focus are the reviews. As a side note: The endogeneity of advertising should not worry too much due to the fact that we have data with high frequency in terms of weekly periods. Furthermore, remember we also control the fixed effects of the segments. 
 
 info("Endogeneity") # Run this line (Strg-Enter) to show info
 
-Furthermore, advertising is introduced in a rather simple fashion in this article, meaning it does not take possible threshold effects into account. That being said, the impact of advertising is really small. At the mean advertising level, the volume would just increase by 320 liters for a week of advertising, translating into SEK 31872 ( ~ USD 4346). However, the average weekly advertising expenditure is only SEK 6900 ( ~ USD 940). In comparison, the wine with the highest average advertising expenditures spends on average SEK 96000 ( ~ USD 13000) per week. This leads to a increasment of 525 liters, meaning SEK 52290 ( ~ USD 7130).
+Furthermore, advertising is introduced in a rather simple fashion in this article, meaning it does not take possible threshold effects into account. That being said, the impact of advertising is really small. At the mean advertising level, the volume would just increase by 320 liters for a week of advertising, translating into SEK 31872 ( ~ USD 4346). However, the average weekly advertising expenditure is only SEK 6900 ( ~ USD 940). In comparison, the wine with the highest average advertising expenditures spends on average SEK 96000 ( ~ USD 13000) per week. This leads to a increment of 525 liters, meaning SEK 52290 ( ~ USD 7130).
 
 *This exercise refers to page 203-206 in the paper*
 
@@ -1279,19 +1283,19 @@ Furthermore, advertising is introduced in a rather simple fashion in this articl
 
 ### a) Indicators
 
-Let us also take a look at wines that are being "good" reviewd on the AoM event and that are not. Due to fact that we have new indicators, we need to create a new base data frame. We also need lags and leads for following variables: 
+Let us also take a look at wines that are being "good" reviewed on the AoM event and that are not. Due to fact that we have new indicators, we need to create a new base data frame. We also need lags and leads for following variables: 
 
-* `rev_ex_hi` is the ndicator of the wine receiving a good review in AoM. 
+* `rev_ex_hi` is the indicator of the wine receiving a good review in AoM. 
 * `rev_ex_lo` is the indicator of the wine receiving a bad review in AoM. 
 * `rev_nyaom` is the indicator of review is not in AoM yearly special. 
 * `rev_nyaom_hi` is the indicator of good reviews not in AoM yearly special. 
-* `rev_nyaom_lo` is the indicator of bad reviews not in AoM yealy special. 
+* `rev_nyaom_lo` is the indicator of bad reviews not in AoM yearly special. 
 * `rev_all` is the indicator of the wine being reviewed (all media).
 * `ma_split` Advertising expenditures a specific week for a wine. 
 
 ### b) Wines from AoM yearly special 
 
-Load up the reequired datasets first. We will use the dataset `dataaom` that consists of all required lags and leads. We also need to load `dffig3` from the previous exercise. Check the chunk.
+Load up the required data sets first. We will use the data set `dataaom` that consists of all required lags and leads. We also need to load `dffig3` from the previous exercise. Check the chunk.
 
 ```{r "10_AoM_wines"}
 # Load dataaom.
@@ -1300,7 +1304,7 @@ dataaom <- readRDS(file="dataaom.RDS")
 dffig3 <- readRDS(file="dffig3.RDS")
 ```
 
-So first let us estimate the effect for the wines that were being reviewed on tha yearly AoM event. We are going to use the explanatory variables `rev_ex_hi`, `rev_ex_lo` and `ma_split`. The forumula consists again of all 25 lags, 4 leads and the base variable.
+So first let us estimate the effect for the wines that were being reviewed on the yearly AoM event. We are going to use the explanatory variables `rev_ex_hi`, `rev_ex_lo` and `ma_split`. The formula consists again of all 25 lags, 4 leads and the base variable.
 
 $$ llitre_{ijkt} = \alpha_{j} + \delta_{kt} + \sum_{l=-4}^{25} \alpha_{t-l} \text{ rev_ex_hi}_{it-l} + \sum_{l=-4}^{25} \alpha_{t-l}^{bad} \text{ rev_ex_lo}_{it-l} + \sum_{l=-4}^{25} \gamma_{t-l} \text{ ma_split}_{it-l} + \eta_{ijkt} $$
 
@@ -1308,7 +1312,7 @@ The fixed effects and the cluster variable are the same with:
 
 $\alpha$ is a fixed effect, defined by wine x vintage x price combination, which is `artikpr` with the indices `j`. 
 
-$\delta$ is a sparate fixed effect, defined by week t x segment k (compensation for time trends & sales), which is `time_segm_price` with the indices `kt`.
+$\delta$ is a separate fixed effect, defined by week t x segment k (compensation for time trends & sales), which is `time_segm_price` with the indices `kt`.
 
 $\eta$ is the error term with wine i, vintage x price combination j and week t, which is clustered at the brand level `artikelid`.
 
@@ -1318,7 +1322,7 @@ $\eta$ is the error term with wine i, vintage x price combination j and week t, 
 aomreg <- felm(llitre ~ rev_ex_hi + rev_ex_hi_lag_1 + rev_ex_hi_lag_2 + rev_ex_hi_lag_3 + rev_ex_hi_lag_4 + rev_ex_hi_lag_5 + rev_ex_hi_lag_6 + rev_ex_hi_lag_7 + rev_ex_hi_lag_8 + rev_ex_hi_lag_9 + rev_ex_hi_lag_10 + rev_ex_hi_lag_11 + rev_ex_hi_lag_12 + rev_ex_hi_lag_13 + rev_ex_hi_lag_14 + rev_ex_hi_lag_15 + rev_ex_hi_lag_16 + rev_ex_hi_lag_17 + rev_ex_hi_lag_18 + rev_ex_hi_lag_19 + rev_ex_hi_lag_20 + rev_ex_hi_lag_21 + rev_ex_hi_lag_22 + rev_ex_hi_lag_23 + rev_ex_hi_lag_24 + rev_ex_hi_lag_25 + rev_ex_hi_lead_1 + rev_ex_hi_lead_2 + rev_ex_hi_lead_3 + rev_ex_hi_lead_4 + rev_ex_lo + rev_ex_lo_lag_1 + rev_ex_lo_lag_2 + rev_ex_lo_lag_3 + rev_ex_lo_lag_4 + rev_ex_lo_lag_5 + rev_ex_lo_lag_6 + rev_ex_lo_lag_7 + rev_ex_lo_lag_8 + rev_ex_lo_lag_9 + rev_ex_lo_lag_10 + rev_ex_lo_lag_11 + rev_ex_lo_lag_12 + rev_ex_lo_lag_13 + rev_ex_lo_lag_14 + rev_ex_lo_lag_15 + rev_ex_lo_lag_16 + rev_ex_lo_lag_17 + rev_ex_lo_lag_18 + rev_ex_lo_lag_19 + rev_ex_lo_lag_20 + rev_ex_lo_lag_21 + rev_ex_lo_lag_22 + rev_ex_lo_lag_23 + rev_ex_lo_lag_24 + rev_ex_lo_lag_25 + rev_ex_lo_lead_1 + rev_ex_lo_lead_2 + rev_ex_lo_lead_3 + rev_ex_lo_lead_4 + ma_split + ma_split_lag_1 + ma_split_lag_2 + ma_split_lag_3 + ma_split_lag_4 + ma_split_lag_5 + ma_split_lag_6 + ma_split_lag_7 + ma_split_lag_8 + ma_split_lag_9 + ma_split_lag_10 + ma_split_lag_11 + ma_split_lag_12 + ma_split_lag_13 + ma_split_lag_14 + ma_split_lag_15 + ma_split_lag_16 + ma_split_lag_17 + ma_split_lag_18 + ma_split_lag_19 + ma_split_lag_20 + ma_split_lag_21 + ma_split_lag_22 + ma_split_lag_23 + ma_split_lag_24 + ma_split_lag_25 + ma_split_lead_1 + ma_split_lead_2 + ma_split_lead_3 + ma_split_lead_4 | time_segm_price + artikpr | 0 | artikelid, data = dataaom)
 ```
 
-We should already be familiar with the structure of the summary from the last regression. Again, the next step is to prepare a dataframe for more plots. 
+We should already be familiar with the structure of the summary from the last regression. Again, the next step is to prepare a data frame for more plots. 
 
 The following chunk will load the result of the summary done by `tidy()`. 
 
@@ -1330,35 +1334,44 @@ tidyaom <- readRDS(file="tidyaom.RDS")
 Let's take a look at the results. Display `dfaom` with the `head()` function. 
 
 ```{r "10_AoM_wines__4"}
-# Display dffig3 with the head function. 
-head(tidyaom)
+# Display dffig3 with the head function.
 ```
 
-Perect, we are almost done. In this exercise we only need the first 30 values because we are just going to plot the estimates for good reviews. So extract the first 30 values to a new dataframe, because as you can see, it starts with the variable `rev_ex_hi`. 
+Perfect, we are almost done. In this exercise we only need the first 30 values because we are just going to plot the estimates for good reviews. So extract the first 30 values to a new data frame, because as you can see, it starts with the variable `rev_ex_hi`. 
 
 ```{r "10_AoM_wines__5"}
-# Extract the first 30 values
-# Name the data frame dfaomfinal.
+# Extract the first 30 values.
+# Mind the indice syntax [,]
+# Name the data frame dfaom.
 ```
 
-Perfect. The next step is go calcualte the upper and lower value of the 95% confidence interval. Also we will add the `week` column right away. Remember the appropriate sequence.
+Perfect. The next step is go calculate the upper and lower value of the 95% confidence interval. Also we will add the `week` column right away. Remember the appropriate sequence.
 
 ```{r "10_AoM_wines__6"}
 # Calculate the upper and lower value of the confidence interval. Name it u and l.
 # Add the week column with the appropriate sequence. 
 # Displaying a part of the data frame with the head function. 
+dfaom$u <- dfaom$estimate+1.96*dfaom$std.error
+dfaom$l <- dfaom$estimate-1.96*dfaom$std.error 
+dfaom$week <- c(0:25,-1:-4)
+head(dfaom)
 ```
 
 Perfect, we finished the first preparations. 
 
-The next step is to plot the estimations. You also should be familiar with this syntax. But you need to adapt the `data frame`, `x`, `y` and `title`. We do not need indices though. You should also change `ylim` to `c(-0.02,0.10)` due to the results. The titel should be `"Good review: Non-AoM yearly test"`.
+The next step is to plot the estimations. You also should be familiar with this syntax. But you need to adapt the `data frame`, `x`, `y` and `title`. We do not need indices though. You should also change `ylim` to `c(-0.02,0.10)` due to the results. The title should be `"Good review: Non-AoM yearly test"`.
 
 ```{r "10_AoM_wines__7"}
 # Adapt the data frame, x, y, title and ylim.
 # We do not need indices.
+plot(dfaom$week,dfaom$estimate, main = "Good review: AoM yearly test", xlab = "week", ylab = "log liter",ylim=c(-0.02,0.10), xlim=c(-5,25), pch = 21, bg = "blue", panel.last = c(abline(a = 0, b = 1, lty = 1, col = "grey"),abline(a = 0, b = 0, lty = 1,  col = "grey")))
+grid(nx = NULL, ny = NULL)
+segments(dfaom$week, dfaom$l, dfaom$week, dfaom$u)
+points(dfaom$week,dfaom$l, pch = "_")
+points(dfaom$week,dfaom$u, pch = "_")
 ```
 
-Congratulations, you created the plot. The results show that the the good reviews for a wine reviewd on the AoM yearly test increase the demand up to roughly 6 percent within the first week. Afterwards it decrases a bit but stays fairly stable until week 4. We see some decreasment from week 4 to 9. But then we see a short rise. After this, it falls down to around zero. 
+Congratulations, you created the plot. The results show that the the good reviews for a wine reviewed on the AoM yearly test increase the demand up to roughly 6 percent within the first week. Afterwards, it decreases a bit but stays fairly stable until week 4. We see some decrements from week 4 to 9. But then we see a short rise. After this, it falls down to around zero. 
 
 Let us compare the good reviews in general with the good reviews from the AoM yearly test with a scatter plot. We will create a new `data frame` named `comparison`. The `data frame` is going to have the appropriate `week` column and the `difference` of both estimations.  
 
@@ -1394,8 +1407,7 @@ tidynonaom <- readRDS(file = "tidynonaom.RDS")
 Display `tidynonaom` to get a quick overview.
 
 ```{r "10_AoM_wines__11"}
-# Display tidynonaom with the head() function. 
-head(tidynonaom)
+# Display tidynonaom with the head() function.
 ```
 
 As you can see, the first 30 values refer to the review per se variable of the non-AoM wines, so `rev_nyaom`. The good review dummy is listed after it, meaning indices 31 to 60.
@@ -1413,6 +1425,11 @@ Perfect, next step: plotting. Choose the appropriate code.
 ```{r "10_AoM_wines__13"}
 # Adapt the data frame, x, y, title and ylim.
 # We do not need indices.
+plot(dfnonaom$week,dfnonaom$estimate, main = "Good review: Non-AoM yearly test", xlab = "week", ylab = "log liter",ylim=c(-0.02,0.10), xlim=c(-5,25), pch = 21, bg = "blue", panel.last = c(abline(a = 0, b = 1, lty = 1, col = "grey"),abline(a = 0, b = 0, lty = 1,  col = "grey")))
+grid(nx = NULL, ny = NULL)
+segments(dfnonaom$week, dfnonaom$l, dfnonaom$week, dfnonaom$u)
+points(dfnonaom$week,dfnonaom$l, pch = "_")
+points(dfnonaom$week,dfnonaom$u, pch = "_")
 ```
 
 Awesome, you created the correct plot. Let us compare also the impact of good reviews in general and the good reviews of "non-Aom-wines". We use the same procedure as before by creating a comparison `data frame` and plotting the differences.  
@@ -1434,9 +1451,9 @@ Let us also talk about the estimates on the leads in all these plots. All these 
 
 Even though the advertising expenditures are rather low, it has shown that it tends to matter more how persuasive the advertising is and not how much is spent.(See, for instance, Vakratsas and Ambler (1999) or Tellis, Chandy, and Thaivanich (2000)). Further, the content of advertisement in Sweden is regulated, therefore we see rather informative content. This might explain the low impact. 
 
-In comparison, the impact of a good review lasts way longer than than the impact of advertising. This might be explained with the characterisitcs of the medium. Advertising is rather informative and therefore fulfils the same role as a neutral review. A good review, on the other hand, focuses more on details and the quality of a product, thus is more persuasive. 
+In comparison, the impact of a good review lasts way longer than than the impact of advertising. This might be explained with the characteristics of the medium. Advertising is rather informative and therefore fulfills the same role as a neutral review. A good review, on the other hand, focuses more on details and the quality of a product, thus is more persuasive. 
 
-The premise of the article is that wine specific demand shocks are not correlated with fact of a wine being reviewd in the same week. Therefore, we also estimated the effect of wines that are only reviewed on the AoM event and that do not, to examine if we capture the casual effect of wine reviews. The similarites of both plots and therefore estimations give us enough support to the regression captures a casual effect reviews.
+The premise of the article is that wine specific demand shocks are not correlated with fact of a wine being reviewed in the same week. Therefore, we also estimated the effect of wines that are only reviewed on the AoM event and that do not, to examine if we capture the casual effect of wine reviews. The similarities of both plots and therefore estimations give us enough support to the regression captures a casual effect reviews.
 
 *This exercise refers to page 206 in the paper* 
 
@@ -1446,7 +1463,7 @@ So this chapter is a chapter where you rather just check / run the code than try
 
 ### a) Introduction
 
-We have noticed that different types of advertising (informative & persuasive) have a different impact on the sales. The article also tested if there are diferrences among some specific categories. We took a look at the first 10 weeks. The defined categories of interest are as the following:
+We have noticed that different types of advertising (informative & persuasive) have a different impact on the sales. The article also tested if there are differences among some specific categories. We took a look at the first 10 weeks. The defined categories of interest are as the following:
 
 * Medium and high price wines  `medhigh`
 * Wines from certain countries `newworld`
@@ -1491,7 +1508,7 @@ As already mentioned, there was a time where advertising for wine was prohibited
 
 **New wines, defined as not older than 2 years** `new`
 
-The category `new` is for wines that are not older than 2 years old. The reason for this defintion is that the set of wines in the top tiers, this the wines that get distributed in most of the stores, are quite stable and it is hard to achieve a *good* number of observations. So it got decided to use this defintion in order to compare new vs old. 
+The category `new` is for wines that are not older than 2 years old. The reason for this definition is that the set of wines in the top tiers, this the wines that get distributed in most of the stores, are quite stable and it is hard to achieve a *good* number of observations. So it got decided to use this definition in order to compare new vs old. 
 
 *Wines that come in vintages** `vint_brands`
 
@@ -1499,14 +1516,14 @@ The vintage brands category is based on the `vintage` variable. If the column co
 
 **High quality variations** `highvar_q`
 
-The next category is not so obvious. It indicates if a wine comes from a region that exhibits high quality variations. The quality got measured by grades, so we used `v10_all` which is the weekly average normalized review (all media). The standard deviation of the grades respresents the variation in quality. So if a region has in a specific year has high standard deviation in grades then it has a high quality variation. A standard deviation larger than the 75% percentile was considered as high. It got broken down to `country`, `region` and `year`. 
+The next category is not so obvious. It indicates if a wine comes from a region that exhibits high quality variations. The quality got measured by grades, so we used `v10_all` which is the weekly average normalized review (all media). The standard deviation of the grades represents the variation in quality. So if a region has in a specific year has high standard deviation in grades then it has a high quality variation. A standard deviation larger than the 75% percentile was considered as high. It got broken down to `country`, `region` and `year`. 
 
 Click on the info button for a detailed look at the code. 
 
 #! start_note "Info: Code for high_var"
 *do not run the chunks, they are just for demonstrations*
 
-The first step is to group by `country`, `region` and `year`. Then, we summarise by calculating the standard deviation of v10_all for the grouped "rows". Afterwards, we create the dummy and check for the 75% percentile. *A number instead of a precentile calculation is used here because there was a small difference between the original calculations of the article in STATA and in R, which would result in a small but still significant difference in observations tagged as `high_var`*
+The first step is to group by `country`, `region` and `year`. Then, we summarize by calculating the standard deviation of v10_all for the grouped "rows". Afterwards, we create the dummy and check for the 75% percentile. *A number instead of a precentile calculation is used here because there was a small difference between the original calculations of the article in STATA and in R, which would result in a small but still significant difference in observations tagged as `high_var`*
 
 ```{r "11_Categorical_Impac",optional=TRUE}
 # Grouping by country, region and year.
@@ -1520,7 +1537,7 @@ highvar <- tab3 %>%
   mutate(highvar_q = ifelse(is.na(standard_deviation) | standard_deviation < 3.040,0,1))
 ```
 
-The next step is to merge the summary values to the base dataframe, so all the wines get the corresponding value.
+The next step is to merge the summary values to the base data frame, so all the wines get the corresponding value.
 
 ```{r "11_Categorical_Impac__2",optional=TRUE}
 # Merging tab3 and highvar by country, region and year (the group critira).
@@ -1574,7 +1591,7 @@ Click on the info button to take a look at the code for the tabloid category.
 
 *do not run the chunks, they are just for demonstrations*
 
-This is the code for the tabloud category. As you can see, the code just checks for the `rev_eves`. 
+This is the code for the tabloid category. As you can see, the code just checks for the `rev_eves`. 
 
 ```{r "11_Categorical_Impac__3",optional=TRUE}
 # Assigning dummy data frame to tabloid.
@@ -1632,32 +1649,13 @@ We already saw an example, how to translate our equation into the regression for
 tabloidreg <- felm(llitre ~ Review + GoodReview + BadReview + rev_all + rev_all_lag_1 + rev_all_lag_2 + rev_all_lag_3 + rev_all_lag_4 + rev_all_lag_5 + rev_all_lag_6 + rev_all_lag_7 + rev_all_lag_8 + rev_all_lag_9 + rev_all_lag_10 + rev_all_lag_11 + rev_all_lag_12 + rev_all_lag_13 + rev_all_lag_14 + rev_all_lag_15 + rev_all_lag_16 + rev_all_lag_17 + rev_all_lag_18 + rev_all_lag_19 + rev_all_lag_20 + rev_all_lag_21 + rev_all_lag_22 + rev_all_lag_23 + rev_all_lag_24 + rev_all_lag_25  + rev_all_lead_1 + rev_all_lead_2 + rev_all_lead_3 + rev_all_lead_4 + rev_all_hi + rev_all_hi_lag_1 + rev_all_hi_lag_2 + rev_all_hi_lag_3 + rev_all_hi_lag_4 + rev_all_hi_lag_5 + rev_all_hi_lag_6 + rev_all_hi_lag_7 + rev_all_hi_lag_8 + rev_all_hi_lag_9 + rev_all_hi_lag_10 + rev_all_hi_lag_11 + rev_all_hi_lag_12 + rev_all_hi_lag_13 + rev_all_hi_lag_14 + rev_all_hi_lag_15 + rev_all_hi_lag_16 + rev_all_hi_lag_17 + rev_all_hi_lag_18 + rev_all_hi_lag_19 + rev_all_hi_lag_20 + rev_all_hi_lag_21 + rev_all_hi_lag_22 + rev_all_hi_lag_23 + rev_all_hi_lag_24 + rev_all_hi_lag_25 + rev_all_hi_lead_1 + rev_all_hi_lead_2 + rev_all_hi_lead_3 + rev_all_hi_lead_4 + rev_all_lo + rev_all_lo_lag_1 + rev_all_lo_lag_2 + rev_all_lo_lag_3 + rev_all_lo_lag_4 + rev_all_lo_lag_5 + rev_all_lo_lag_6 + rev_all_lo_lag_7 + rev_all_lo_lag_8 + rev_all_lo_lag_9 + rev_all_lo_lag_10 + rev_all_lo_lag_11 + rev_all_lo_lag_12 + rev_all_lo_lag_13 + rev_all_lo_lag_14 + rev_all_lo_lag_15 + rev_all_lo_lag_16 + rev_all_lo_lag_17 + rev_all_lo_lag_18 + rev_all_lo_lag_19 + rev_all_lo_lag_20 + rev_all_lo_lag_21 + rev_all_lo_lag_22 + rev_all_lo_lag_23 + rev_all_lo_lag_24 + rev_all_lo_lag_25 + rev_all_lo_lead_1 + rev_all_lo_lead_2 + rev_all_lo_lead_3 + rev_all_lo_lead_4 + ma_split + ma_split_lag_1 + ma_split_lag_2 + ma_split_lag_3 + ma_split_lag_4 + ma_split_lag_5 + ma_split_lag_6 + ma_split_lag_7 + ma_split_lag_8 + ma_split_lag_9 + ma_split_lag_10 + ma_split_lag_11 + ma_split_lag_12 + ma_split_lag_13 + ma_split_lag_14 + ma_split_lag_15 + ma_split_lag_16 + ma_split_lag_17 + ma_split_lag_18 + ma_split_lag_19 + ma_split_lag_20 + ma_split_lag_21 + ma_split_lag_22 + ma_split_lag_23 + ma_split_lag_24 + ma_split_lag_25 + ma_split_lead_1 + ma_split_lead_2 + ma_split_lead_3 + ma_split_lead_4 | time_segm_price + artikpr | 0 | artikelid, data = tabloidsort)
 ```
 
-Here you can see the summarise regression results. 
-<br>
-<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td><em>Dependent variable:</em></td></tr>
-<tr><td></td><td colspan="1" style="border-bottom: 1px solid black"></td></tr>
-<tr><td style="text-align:left"></td><td>llitre</td></tr>
-<tr><td style="text-align:left"></td><td>Tabloid</td></tr>
-<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Review</td><td>-0.0006</td></tr>
-<tr><td style="text-align:left"></td><td>(0.0060)</td></tr>
-<tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">GoodReview</td><td>-0.0191<sup>**</sup></td></tr>
-<tr><td style="text-align:left"></td><td>(0.0083)</td></tr>
-<tr><td style="text-align:left"></td><td></td></tr>
-<tr><td style="text-align:left">BadReview</td><td>-0.0062</td></tr>
-<tr><td style="text-align:left"></td><td>(0.0186)</td></tr>
-<tr><td style="text-align:left"></td><td></td></tr>
-<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>64,863</td></tr>
-<tr><td style="text-align:left">R<sup>2</sup></td><td>0.9910</td></tr>
-<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.9903</td></tr>
-<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
-</table>
-<br>
+Here you can see the summarize regression results. 
+
 This summary was created with the `stargazer` package. Click the info button for more information about `stargazer` and the code. 
 
 #! start_note "Info: Stargazer"
 
-The stargazer command produces LaTeX code, HTML code and ASCII text for well-formatted tables that summarise regression results from several models. Stargazer supports a large number model objects from a variety of packages.
+The stargazer command produces LaTeX code, HTML code and ASCII text for well-formatted tables that summarize regression results from several models. Stargazer supports a large number model objects from a variety of packages.
 
 Use the following link to look up more information.
 
@@ -1686,7 +1684,7 @@ stargazer(tabloidreg,
 
 #! end_note
 
-We will interpretate the results later on when all categories are included.
+We will interpret the results later on when all categories are included.
 
 Let's move on to the rest of the categories since we know the details of the categories & indicators and have a good understanding about the regression model.
 
@@ -1787,7 +1785,7 @@ codenew <- readRDS(file="codenew.RDS")
 eval(parse(text = codenew))
 ```
 
-The results of all categories got summarised in one big table. The `stargazer()` function got used again. All the regressions results got passed to the function. The settings regarding type, omits and digits were the same. Just the column label option got passed a vector with all the category names.
+The results of all categories got summarized in one big table. The `stargazer()` function got used again. All the regressions results got passed to the function. The settings regarding type, omits and digits were the same. Just the column label option got passed a vector with all the category names.
 
 * Medium and high price
 * Tabloid
@@ -1851,8 +1849,7 @@ The results of all categories got summarised in one big table. The `stargazer()`
 					<td style="text-align:left">Review</td>
 					<td>0.0018</td>
 					<td>-0.0006</td>
-					<td>-0.0199
-						<sup>**</sup>
+					<td>-0.0199**
 					</td>
 					<td>0.0056</td>
 					<td>-0.0039</td>
@@ -1884,11 +1881,9 @@ The results of all categories got summarised in one big table. The `stargazer()`
 				</tr>
 				<tr>
 					<td style="text-align:left">GoodReview</td>
-					<td>0.0219
-						<sup>***</sup>
+					<td>0.0219***
 					</td>
-					<td>-0.0191
-						<sup>**</sup>
+					<td>-0.0191**
 					</td>
 					<td>-0.0025</td>
 					<td>-0.0049</td>
@@ -2000,19 +1995,19 @@ The results of all categories got summarised in one big table. The `stargazer()`
 						<em>Note:</em>
 					</td>
 					<td colspan="8" style="text-align:right">
-						<sup>*</sup>p
-						<0.1; 
-							<sup>**</sup>p
-							<0.05; 
-								<sup>***</sup>p
-								<0.01
+						p
+						<0.1*; 
+							p
+							<0.05**; 
+							  p
+								<0.01***
 								</td>
 							</tr>
 						</table>
 					</body>
 				</html>
 				
-Amazing, now we have a really good and clear summary to interpretate the results. The `stargazer` automatically puts the values of `Review`, `GoodReview` and `BadReview` on the same row, since the variables have purposely the same name in each category. But this is exactly what we want, because it represents the same review type even though it is not really the same variable.  
+Amazing, now we have a really good and clear summary to interpret the results. The `stargazer` automatically puts the values of `Review`, `GoodReview` and `BadReview` on the same row, since the variables have purposely the same name in each category. But this is exactly what we want, because it represents the same review type even though it is not really the same variable.  
 
 Click on the info button for a closer look at the used code:
 
@@ -2037,13 +2032,24 @@ Now, let's move on to the interpretation of the results.
 
 We can see that wines medium and high prices have a greater effect on good reviews. This is consistent with the idea that quality information matter in higher price classes. To continue this thought, advertising is often a part of the consumption. It is fair to assume it is a greater pleasure to offer a whine to their guests that has a good review. In comparison, the results show that a good review in a tabloid matter less. This is also consistent with the prestige theory. If we also take a look at the neutral review of tabloid, we can see that the sender in terms of neutral reviews is less important. Remember: the role of a neutral review is just to inform about the existence. 
 
-The newworld category examined , except of Portugal, only non-european wines. It seems that a review per se matter less it is about a non-european wine, but there is no significant difference for a good review. This suggests that non-european wines are better known and therefore that the review has less effect. This is consistent with the informative view of the review per se. This indicates that advertised wines should be better known as well, however the estimation from column 4 is essentially zero and not significant. 
+The new world category examined , except of Portugal, only non-European wines. It seems that a review per se matter less it is about a non-European wine, but there is no significant difference for a good review. This suggests that non-European wines are better known and therefore that the review has less effect. This is consistent with the informative view of the review per se. This indicates that advertised wines should be better known as well, however the estimation from column 4 is essentially zero and not significant. 
 
 Another category examines if the impact of a review is different when advertising was allowed and not. If the advertising was persuasive and would create loyal costumers, then reviews would matter less after advertising was allowed. However, this theory is not supported. 
 
-Further, wines that are already established on the market and therefore tested by a lot of costumers, reviews should matter less in these cases. Due to the fact that the wines that are used in this article are already relatively established, we defined a new wine as a wine that was introduced not more than two years before the appearence of the correspodning review. However, we could not find a significant difference. 
+Further, wines that are already established on the market and therefore tested by a lot of costumers, reviews should matter less in these cases. Due to the fact that the wines that are used in this article are already relatively established, we defined a new wine as a wine that was introduced not more than two years before the appearance of the corresponding review. However, we could not find a significant difference. 
 
 An idea is that reviews have a greater impact on wines where the quality matters a lot and uncertainty exists. Thus, we tested wines that come in vintages (vs. non vintages). However, the numbers does not really support this idea. Also the estimation for wines that come from a region that exhibits high quality variation can not support with numbers either. Both estimations are close to zero and insignificant. 
+
+#! addon__quiz__11a
+
+#! addon__quiz__11b
+
+#! addon__quiz__11c
+<br>
+**Final Question:**
+Look at the tabloid category. Add the correct parts to the sentence: "A good review in a tabloid is 
+associated with a (answer1) percent (answer2) in sales / demand" 
+#! addon__quiz__parts
 
 *This exercise refers to page 207-209 in the paper*
 
@@ -2051,22 +2057,22 @@ An idea is that reviews have a greater impact on wines where the quality matters
 
 So you are almost at the end of the problem set and I hope you liked it and learned a couple of things.
 
-But before you go on and read the conlusion, check for one last time and see how many rewards you will get. 
+But before you go on and read the conclusion, check for one last time and see how many rewards you will get. 
 
-```{r "12_Conclusion"}
+```{r "12_Conclusion",results='asis'}
 awards(as.html = TRUE)
 ```
 
 
-As a conclusion we found out that a good review have a significant impact on the demand of wines. The effect lasts roughly up to 22 week which is quite long. This means that good reviews in print medias are really valuable for the wine importers that also mainly decide the prices. But not only a good review has an effect, also just being reviewed has a small positive effect which is smaller and is more transient but is definiately there and valuable. A bad review is approximately zero, strictly speaking it is slightly negative but the effect of the review itself counterweights. Advertising expenditures also have an impact, but the effect is similar to a neutral review, which is rather minor and short lived. 
+As a conclusion we found out that a good review have a significant impact on the demand of wines. The effect lasts roughly up to 22 week which is quite long. This means that good reviews in print medias are really valuable for the wine importers that also mainly decide the prices. But not only a good review has an effect, also just being reviewed has a small positive effect which is smaller and is more transient but is definitely there and valuable. A bad review is approximately zero, strictly speaking it is slightly negative but the effect of the review itself counterweights. Advertising expenditures also have an impact, but the effect is similar to a neutral review, which is rather minor and short lived. 
 
 But overall, the results suggest that a good review provide information about the wine and its quality which consumers act on, which means that the parties of interest obviously have an eye on every review about their products. As a comparison, the mentioned effect of a neutral review or advertising expenditure suggest that they rather bring the wine to the attention of customers, so this is more an informative channel and not a persuasive one. 
 
 Good reviews also have a higher impact on higher priced wines, and even stronger if the review publishes in the morning or targeted press than in tabloid. This is due to the prestige view of the review. The review basically is a part of the consumption, meaning it is a pleasure to serve a wine that has a good review to guests. 
 
-Even though the results show a significant impact of the reviews, especially because we also compared the impact of reviews on demand for newer versus older wines. However, the impact is most likely less for wines that have been on the market for a long time and are known to most of the consumers. One explanation might be that there are enough customers that just discovered a particular wine that has been one the markt for quite some time. These can be people that are new to wine reviews and just shopped casually before or they are even completley new wine consumers. 
+Even though the results show a significant impact of the reviews, especially because we also compared the impact of reviews on demand for newer versus older wines. However, the impact is most likely less for wines that have been on the market for a long time and are known to most of the consumers. One explanation might be that there are enough customers that just discovered a particular wine that has been one the market for quite some time. These can be people that are new to wine reviews and just shopped casually before or they are even completely new wine consumers. 
 
-What else can explain the impact. There is also a possibility that we have such an impact of reviews because the market lacks persuasive advertising or retailer sales promotion. But this is also because of the limits on the market. Remember that the monopoly retailer Systembolaget itself do not really have a possibility to ehance the sales.
+What else can explain the impact. There is also a possibility that we have such an impact of reviews because the market lacks persuasive advertising or retailer sales promotion. But this is also because of the limits on the market. Remember that the monopoly retailer Systembolaget itself do not really have a possibility to enhance the sales.
 
 ## Exercise 13 References
 
@@ -2084,6 +2090,13 @@ What else can explain the impact. There is also a possibility that we have such 
 
 * Chevalier, Judith A., and Dina Mayzlin. 2006. "The Effect of Word of Mouth on Sales: Online Book 
 Reviews." Journal of Marketing Research, 43 ( 3 ) : 345-54.
+
+* Vakratsas, Demetrios, and Tim Ambler. 1999. "How Advertising Works - What Do We Really Know?" 
+The Journal of Marketing, 63 ( 1 ) : 26-43.
+
+* Tellis, Gerard J., Rajesh K. Chandy, and Pattana Thaivanich. 2000. "Which Ad Works, When, Where, 
+and How Often? Modeling the Effects of Direct Television Advertising." Journal of Marketing 
+Research, 37 ( 1 ) : 32-46.
 
 **R and packages in R** 
 
@@ -2120,6 +2133,8 @@ Reviews." Journal of Marketing Research, 43 ( 3 ) : 345-54.
 * Hadley Wickham, Winston Chang & RStudio. ggplot2 version 2.1.0 [http://docs.ggplot2.org/current/](http://docs.ggplot2.org/current/)
 
 * Stata: Data Analysis and Statistical Software, Manuals13 [Stata.com](http://www.stata.com/)
+
+* Stargazer: beautiful LATEX, HTML and ASCII tables from R statistical output by Marek Hlavac, Harvard University [Cran R Project PDF](https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf)
 
 **Licence**
 
