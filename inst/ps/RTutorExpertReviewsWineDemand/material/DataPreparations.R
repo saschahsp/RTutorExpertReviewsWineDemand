@@ -284,3 +284,6 @@ codenew <- paste0(
   artikpr | 0 | artikelid, data = newsort)
   newsummary <- summary(newreg)")
 #
+tidynew <- tidy(newreg)
+exclude <- tidynew[4:124,1]
+saveRDS(exclude, file = "exclude.RDS")
