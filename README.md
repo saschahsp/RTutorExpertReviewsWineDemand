@@ -1,3 +1,12 @@
+
+
+A published PDF of the thesis can be downloaded from the repository. 
+
+You can also try the problem set yourself on shinyapps.io. 
+https://saschahsp.shinyapps.io/RTutorExpertReviewsWineDemand  
+
+**In order to work with the project in the browser, follow the instructions.** 
+
 This package constitutes an interactive R problem set based on the RTutor package (https://github.com/skranz/RTutor). 
 
 In this paper **Do Expert Reviews Affect the Demand for Wine?** Richard Friberg and Erik Groenqvist examine if reviews effect the demand of wine by using the Swedish wine market. They use five years of weekly data on sales, advertising and expert reviews.
